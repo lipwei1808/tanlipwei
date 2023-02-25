@@ -1,0 +1,106 @@
+{
+  "plugins": ["@typescript-eslint", "jest"],
+  "extends": [
+    "next/core-web-vitals",
+    "eslint:recommended",
+    "plugin:import/recommended",
+    "plugin:import/typescript",
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
+    "airbnb"
+  ],
+  "rules": {
+    "no-console": "warn",
+    "no-duplicate-imports": "error",
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": "error",
+    "@typescript-eslint/no-explicit-any": "warn",
+    "indent": "off",
+    "react/jsx-filename-extension": [2, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
+    "react/function-component-definition": [
+      2,
+      { "namedComponents": ["arrow-function", "function-declaration"] }
+    ],
+    "react/jsx-pascal-case": [
+      1,
+      {
+        "allowAllCaps": false,
+        "allowLeadingUnderscore": false,
+        "allowNamespace": true
+      }
+    ],
+    "no-underscore-dangle": "off",
+    "react/react-in-jsx-scope": "off", // to prevent import of React in every component
+    "react/require-default-props": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/jsx-curly-newline": "off", // to prevent conflict with prettier formatting
+    "implicit-arrow-linebreak": "off", // to prevent conflict with prettier formatting
+    "comma-dangle": [
+      1,
+      {
+        "imports": "only-multiline",
+        "exports": "only-multiline",
+        "objects": "always-multiline",
+        "arrays": "only-multiline",
+        "functions": "never"
+      }
+    ],
+    "object-curly-newline": [
+      1,
+      {
+        "ObjectExpression": { "consistent": true }
+      }
+    ],
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      { "js": "never", "jsx": "never", "ts": "never", "tsx": "never" }
+    ],
+    "import/order": [
+      "error",
+      {
+        "warnOnUnassignedImports": true,
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          "parent",
+          "sibling",
+          "index",
+          "object",
+          "type"
+        ],
+        "newlines-between": "always",
+        "pathGroups": [
+          {
+            "pattern": "react",
+            "group": "builtin",
+            "position": "before"
+          },
+          {
+            "pattern": "@ui/**",
+            "group": "internal",
+            "position": "after"
+          }
+        ]
+      }
+    ],
+    "no-shadow": "off", // Note: you must disable the base rule as it can report incorrect errors
+    "@typescript-eslint/no-shadow": "warn",
+    "react/no-danger": "off", // Can be offed as we are using the jam3 version above already
+    "operator-linebreak": "off" // Check this issue https://github.com/prettier/prettier/issues/3806. Can on after PR update.
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    },
+    "react": {
+      "version": "detect"
+    }
+  },
+  "env": {
+    "jest/globals": true
+  }
+}
