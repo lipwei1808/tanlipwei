@@ -1,69 +1,108 @@
 import { Source_Code_Pro as SourceCodePro } from 'next/font/google';
-import { useState, useEffect } from 'react';
+import { useState, useRef } from 'react';
 
 import About from './components/About';
 import Age from './components/Age';
 import Input from './components/Input';
-import Terminal from './components/Console';
+import Console from './components/Console';
 
 const sourceCodePro = SourceCodePro({ subsets: ['latin'], weight: '400' });
 
 const helpText = [
+  '<br />',
   'help                   still need to say??',
-  'aboutme           self introduction of myself',
-  'projects            projects that i have done',
-  'education         where am i studying',
+  'aboutme                self introduction of myself',
+  'projects               projects that i have done',
+  'education              where am i studying',
+  'technologies           technologies that I have had access to',
+  '<br />',
+];
+
+const aboutMe = [
+  '<br/>',
+  'Hi! I am Lip Wei 👋',
+  '<span class="content">I started programming at 19 during National Service. I particulary took ' +
+    'interest in Full-Stack Web Development and spend my time learning and reading up new frameworks</span>',
+  '<br/>',
 ];
 
 export default function Home() {
   const [input, setInput] = useState('');
-  const [index, setIndex] = useState(0);
-  const [current, setCurrent] = useState<string[]>();
-  const [html, setHtml] = useState<{ name: string; paragraph: string }[]>([]);
+  const consoleRef = useRef<HTMLDivElement>(null);
+  const inputContainer = useRef<HTMLDivElement>(null);
 
-  // eslint-disable-next-line consistent-return
-  useEffect(() => {
-    if (current?.length && index < current.length) {
-      const timer = setTimeout(() => {
-        setHtml([...html, { name: 'paragraph', paragraph: current[index] }]);
-      }, 100);
-      setIndex((idx) => idx + 1);
+  const iterateArrayWithDelay = (
+    delay: number,
+    parent: HTMLElement,
+    content: string[],
+    extraClass: string[]
+  ) => {
+    let idx = 0;
+    const delayFn = () => {
+      if (idx >= content.length) return;
+      const next = document.createElement('p');
+      next.innerHTML = content[idx];
+      next.classList.add(...extraClass);
+      const mask = document.createElement('div');
+      mask.classList.add('animateit');
+      next.appendChild(mask);
+      parent.appendChild(next);
 
-      return () => clearTimeout(timer);
-    }
-    setIndex(0);
-    setCurrent(undefined);
+      idx += 1;
+      inputContainer.current?.scrollIntoView({ behavior: 'smooth' });
+      setTimeout(delayFn, delay);
+    };
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [html, current]);
+    delayFn();
+  };
 
   const onEnter = () => {
-    switch (input) {
-      case 'help':
-        setHtml(html.concat([{ name: 'header', paragraph: 'help' }]));
-        setCurrent(helpText);
-        break;
-      default:
+    // setHtml(html.concat([{ name: 'header', paragraph: 'help' }]));
+    if (consoleRef.current) {
+      const nextEl = document.createElement('p');
+      nextEl.innerHTML = input;
+      nextEl.id = 'command';
+      const newEl = consoleRef.current.appendChild(nextEl);
+      setInput('');
+      switch (input) {
+        case 'help': {
+          iterateArrayWithDelay(80, newEl, helpText, ['ml-2', 'relative']);
+          break;
+        }
+        case 'aboutme': {
+          iterateArrayWithDelay(80, newEl, aboutMe, ['ml-2', 'relative']);
+          break;
+        }
+        default: {
+          const next = document.createElement('p');
+          next.innerHTML = 'Unknown command. Try typing "help"';
+          next.classList.add('animateit');
+          newEl.appendChild(next);
+        }
+      }
     }
-
-    setInput('');
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen py-12">
-      <div className="max-w-screen-lg h-[888px] w-full bg-[#073642] rounded-xl overflow-hidden">
+    <div className="flex justify-center items-center h-screen py-12">
+      <div className="max-w-screen-lg h-[888px] w-full bg-[#073642] rounded-xl overflow-hidden flex flex-col">
         <div className="bg-[#032b36] py-2 px-4 flex gap-x-2">
           <div className="bg-red-400 rounded-full h-4 w-4" />
           <div className="bg-yellow-400 rounded-full h-4 w-4" />
           <div className="bg-green-400 rounded-full h-4 w-4" />
         </div>
-        <div className="p-6">
+        <div className="p-6 flex flex-col h-full">
           <About />
           <Age />
           <hr className="border-[#032b36] my-4" />
-          <div className={sourceCodePro.className}>
-            <Terminal html={html} />
-            <Input input={input} setInput={setInput} onEnter={onEnter} />
+          <div className={`${sourceCodePro.className} overflow-scroll flex-grow flex flex-col`}>
+            <Console consoleRef={consoleRef} />
+            <Input
+              input={input}
+              setInput={setInput}
+              onEnter={onEnter}
+              inputContainer={inputContainer}
+            />
           </div>
         </div>
       </div>

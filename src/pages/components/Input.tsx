@@ -1,16 +1,30 @@
 /* eslint-disable jsx-a11y/no-autofocus */
 
-import { FC, useEffect, useRef, useState, KeyboardEvent, Dispatch, SetStateAction } from 'react';
+import {
+  FC,
+  useEffect,
+  useRef,
+  useState,
+  KeyboardEvent,
+  Dispatch,
+  SetStateAction,
+  RefObject,
+} from 'react';
 
 import classes from './Input.module.scss';
+
+// TODO: Bug with input
+// How to: Type a bunch of spaces, move to the left abit then delete, monitor the value of the input
+// Will have a nbsp; appear inside suddenly
 
 interface Props {
   input: string;
   setInput: Dispatch<SetStateAction<string>>;
   onEnter: () => void;
+  inputContainer: RefObject<HTMLDivElement>;
 }
 
-const Input: FC<Props> = ({ input, setInput, onEnter }) => {
+const Input: FC<Props> = ({ input, setInput, onEnter, inputContainer }) => {
   const [offset, setOffset] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
   const commandRef = useRef<HTMLSpanElement>(null);
@@ -25,6 +39,7 @@ const Input: FC<Props> = ({ input, setInput, onEnter }) => {
     switch (event.keyCode) {
       case 37: // Left
         if (commandRef.current) {
+          console.log(commandRef.current?.offsetWidth);
           if (Math.abs(offset - 9.6) <= commandRef.current?.offsetWidth) {
             setOffset(offset - 9.6);
           } else {
@@ -45,7 +60,7 @@ const Input: FC<Props> = ({ input, setInput, onEnter }) => {
   };
 
   return (
-    <div className="my-2">
+    <div ref={inputContainer}>
       <div className="h-6">
         <span className="text-terminal">tanlipwei@portfolio:~$&nbsp;</span>
         <span className="whitespace-pre" ref={commandRef}>
