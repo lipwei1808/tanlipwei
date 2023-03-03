@@ -39,7 +39,6 @@ const Input: FC<Props> = ({ input, setInput, onEnter, inputContainer }) => {
     switch (event.keyCode) {
       case 37: // Left
         if (commandRef.current) {
-          console.log(commandRef.current?.offsetWidth);
           if (Math.abs(offset - 9.6) <= commandRef.current?.offsetWidth) {
             setOffset(offset - 9.6);
           } else {
