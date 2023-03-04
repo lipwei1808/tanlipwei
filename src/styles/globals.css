@@ -10,4 +10,26 @@ body {
     Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   background-color: black;
   color: white;
+  font-size: 12px;
+}
+
+@media only screen and (min-width: 640px) {
+  html,
+  body {
+    font-size: 13px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  html,
+  body {
+    font-size: 14px;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  html,
+  body {
+    font-size: 16px;
+  }
 }
