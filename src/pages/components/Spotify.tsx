@@ -16,30 +16,34 @@ interface Song {
 const Spotify: FC<Props> = () => {
   const [song, setSong] = useState<Song>();
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      fetch('/api/spotify')
-        .then((res) => {
-          if (!res.ok) {
-            throw new Error('No song');
-          }
+  const fetchSong = () => {
+    fetch('/api/spotify')
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error('No song');
+        }
 
-          return res.json();
-        })
-        .then((data) => {
-          setSong(data.data);
-        })
-        .catch((e) => {
-          if (process.env.NODE_ENV === 'development') {
-            // Print error only in development
-            // eslint-disable-next-line no-console
-            console.log(e);
-          }
-          setSong(undefined);
-        });
-      return () => clearInterval(interval);
-    }, 60000);
+        return res.json();
+      })
+      .then((data) => {
+        setSong(data.data);
+      })
+      .catch((e) => {
+        if (process.env.NODE_ENV === 'development') {
+          // Print error only in development
+          // eslint-disable-next-line no-console
+          console.log(e);
+        }
+        setSong(undefined);
+      });
+  };
+
+  useEffect(() => {
+    fetchSong();
+    const interval = setInterval(() => fetchSong(), 60000);
+    return () => clearInterval(interval);
   }, []);
+
   return (
     <div className="flex flex-col gap-y-10 pt-2 items-center col-start-10 col-span-3 row-span-4 row-start-1 sm:pt-0 sm:justify-center">
       <div className="rounded-full p-4`">
