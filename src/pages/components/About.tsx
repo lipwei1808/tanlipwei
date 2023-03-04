@@ -34,7 +34,7 @@ const About = () => {
                 <style type="text/css" />
                 &nbsp;
                 <g>
-                  {' '}
+                  &nbsp;
                   <path
                     className="st0"
                     d="M276.239,252.183c-6.37,2.127-13.165,3.308-20.239,3.308c-7.074,0-13.87-1.181-20.24-3.308 c-46.272,7.599-70.489,41.608-70.489,82.877H256h90.728C346.728,293.791,322.515,259.782,276.239,252.183z"
@@ -55,7 +55,7 @@ const About = () => {
               </g>
             </svg>
           </a>
-          <a href="https://www.sguniversities.com" target="blank">
+          <a href="https://www.github.com/lipwei1808" target="blank">
             <svg
               className="hover:fill-white cursor-pointer transition"
               xmlns="http://www.w3.org/2000/svg"
@@ -83,7 +83,7 @@ const About = () => {
               </g>
             </svg>
           </a>
-          <a href="https://www.sguniversities.com" target="blank">
+          <a href="https://www.linkedin.com/in/tanlipwei" target="blank">
             <svg
               className="hover:fill-white cursor-pointer transition"
               xmlns="http://www.w3.org/2000/svg"
@@ -94,7 +94,7 @@ const About = () => {
               <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
             </svg>
           </a>
-          <a href="https://www.sguniversities.com" target="blank">
+          <a href="https://www.instagram.com/lipwei.tan" target="blank">
             <svg
               className="hover:fill-white cursor-pointer transition"
               xmlns="http://www.w3.org/2000/svg"

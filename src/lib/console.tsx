@@ -246,49 +246,49 @@ export const technologies = [
         alt="HTML5"
         width={32}
         height={32}
-        style={{ height: 32, width: 'auto' }}
+        style={{ height: '2rem', width: 'auto' }}
       />
       <Image
         src="/logo/css.svg"
         alt="CSS3"
         width={32}
         height={32}
-        style={{ height: 32, width: 'auto' }}
+        style={{ height: '2rem', width: 'auto' }}
       />
       <Image
         src="/logo/javascript.svg"
         alt="CSS3"
         width={32}
         height={32}
-        style={{ height: 32, width: 'auto' }}
+        style={{ height: '2rem', width: 'auto' }}
       />
       <Image
         src="/logo/java.svg"
         alt="Java"
         width={32}
         height={32}
-        style={{ height: 32, width: 'auto' }}
+        style={{ height: '2rem', width: 'auto' }}
       />
       <Image
         src="/logo/python.svg"
         alt="Python"
         width={32}
         height={32}
-        style={{ height: 32, width: 'auto' }}
+        style={{ height: '2rem', width: 'auto' }}
       />
       <Image
         src="/logo/typescript.svg"
         alt="Typescript"
         width={32}
         height={32}
-        style={{ height: 32, width: 'auto' }}
+        style={{ height: '2rem', width: 'auto' }}
       />
       <Image
         src="/logo/c.svg"
         alt="C"
         width={32}
         height={32}
-        style={{ height: 32, width: 'auto' }}
+        style={{ height: '2rem', width: 'auto' }}
       />
     </div>
   ),
@@ -300,42 +300,42 @@ export const technologies = [
         alt="React"
         width={32}
         height={32}
-        style={{ height: 32, width: 'auto' }}
+        style={{ height: '2rem', width: 'auto' }}
       />
       <Image
         src="/logo/angular.svg"
         alt="Angular"
         width={32}
         height={32}
-        style={{ height: 32, width: 'auto' }}
+        style={{ height: '2rem', width: 'auto' }}
       />
       <Image
         src="/logo/nextjs.svg"
         alt="Next.js"
         width={32}
         height={32}
-        style={{ height: 32, width: 'auto' }}
+        style={{ height: '2rem', width: 'auto' }}
       />
       <Image
         src="/logo/nodejs.svg"
         alt="Nodejs"
         width={32}
         height={32}
-        style={{ height: 32, width: 'auto' }}
+        style={{ height: '2rem', width: 'auto' }}
       />
       <Image
         src="/logo/nestjs.svg"
         alt="Nextjs"
         width={32}
         height={32}
-        style={{ height: 32, width: 'auto' }}
+        style={{ height: '2rem', width: 'auto' }}
       />
       <Image
         src="/logo/express.svg"
         alt="Express"
         width={32}
         height={32}
-        style={{ height: 'auto', width: 32 }}
+        style={{ height: 'auto', width: '2rem' }}
       />
     </div>
   ),
@@ -347,49 +347,49 @@ export const technologies = [
         alt="Git"
         width={32}
         height={32}
-        style={{ height: 32, width: 'auto' }}
+        style={{ height: '2rem', width: 'auto' }}
       />
       <Image
         src="/logo/tailwindcss.svg"
         alt="Tailwindcss"
         width={32}
         height={32}
-        style={{ height: 32, width: 'auto' }}
+        style={{ height: '2rem', width: 'auto' }}
       />
       <Image
         src="/logo/sass.svg"
         alt="Sass"
         width={32}
         height={32}
-        style={{ height: 32, width: 'auto' }}
+        style={{ height: '2rem', width: 'auto' }}
       />
       <Image
         src="/logo/docker.png"
         alt="Docker"
         width={32}
         height={32}
-        style={{ height: 32, width: 'auto' }}
+        style={{ height: '2rem', width: 'auto' }}
       />
       <Image
         src="/logo/mongodb.svg"
         alt="Mongodb"
         width={32}
         height={32}
-        style={{ height: 32, width: 'auto' }}
+        style={{ height: '2rem', width: 'auto' }}
       />
       <Image
         src="/logo/firebase.svg"
         alt="Firebase"
         width={32}
         height={32}
-        style={{ height: 32, width: 'auto' }}
+        style={{ height: '2rem', width: 'auto' }}
       />
       <Image
         src="/logo/googlecloud.svg"
         alt="Google Cloud"
         width={32}
         height={32}
-        style={{ height: 32, width: 'auto' }}
+        style={{ height: '2rem', width: 'auto' }}
       />
     </div>
   ),
