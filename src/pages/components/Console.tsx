@@ -6,7 +6,7 @@ interface Props {
 }
 
 const Console: FC<Props> = ({ consoleRef, html }) => (
-  <div ref={consoleRef}>{html.length && Children.toArray(html.map((el) => el()))}</div>
+  <div ref={consoleRef}>{html?.length && Children.toArray(html.map((el) => el()))}</div>
 );
 
 export default Console;
