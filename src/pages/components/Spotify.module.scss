@@ -1,0 +1,19 @@
+.disc {
+  animation: rotate 2s linear 0s infinite normal;
+}
+
+.words {
+  animation: rotate 10s linear 0s infinite normal;
+  transform-origin: 250px 250px;
+  font-size: 2rem;
+  cursor: default;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

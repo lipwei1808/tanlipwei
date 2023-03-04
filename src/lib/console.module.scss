@@ -1,0 +1,43 @@
+.bubbleit {
+  animation: bubble 2s infinite;
+  display: inline-block;
+  overflow: hidden;
+}
+
+@keyframes bubble {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  12% {
+    transform: translateX(-50%);
+  }
+
+  25% {
+    transform: translateX(0%);
+  }
+
+  27% {
+    transform: translateX(50%);
+  }
+
+  50% {
+    transform: translateX(100%);
+  }
+
+  62% {
+    transform: translateX(50%);
+  }
+
+  75% {
+    transform: translateX(0);
+  }
+
+  87% {
+    transform: translateX(-50%);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}

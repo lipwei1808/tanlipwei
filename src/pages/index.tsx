@@ -9,19 +9,21 @@ import {
   technologies,
   helpText,
   unknown,
+  projects,
 } from '@/lib/console';
 
 import About from './components/About';
 import Age from './components/Age';
 import Input from './components/Input';
 import Console from './components/Console';
+import Spotify from './components/Spotify';
 
 const sourceCodePro = SourceCodePro({ subsets: ['latin'], weight: '400' });
 
 export default function Home() {
   const [input, setInput] = useState('');
   const [html, setHtml] = useState<(() => JSX.Element)[]>([]);
-  const [content, setContent] = useState<any[]>([]);
+  const [content, setContent] = useState<(() => JSX.Element)[]>([]);
   const [idx, setIdx] = useState(0);
   const consoleRef = useRef<HTMLDivElement>(null);
   const inputContainer = useRef<HTMLDivElement>(null);
@@ -35,20 +37,24 @@ export default function Home() {
 
   // eslint-disable-next-line consistent-return
   useEffect(() => {
+    const node = inputContainer.current;
+    const container = testRef.current;
     if (idx < content.length) {
       const timer = setTimeout(() => {
         setHtml((prev) => [...prev, content[idx]]);
         setIdx((prev) => prev + 1);
       }, 80);
       return () => {
-        const height = inputContainer.current?.offsetTop;
-        testRef.current?.scroll({ top: height, behavior: 'smooth' });
+        const height = node?.offsetTop;
+        container?.scroll({ top: height, behavior: 'smooth' });
         return clearTimeout(timer);
       };
     }
 
     setIdx(0);
 
+    // Do not want to re render when idx change
+    // Only update after content finish updating
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [html, content]);
 
@@ -91,6 +97,10 @@ export default function Home() {
           setContent([...socials]);
           break;
         }
+        case 'projects': {
+          setContent([...projects]);
+          break;
+        }
         default: {
           setContent([...unknown]);
         }
@@ -99,7 +109,7 @@ export default function Home() {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen py-12">
+    <div className="flex justify-center items-center h-screen lg:py-12">
       <div className="max-w-screen-lg w-full bg-[#073642] overflow-hidden flex flex-col lg:rounded-xl max-h-full">
         <div className="bg-[#032b36] py-2 px-4 flex gap-x-2">
           <div className="bg-red-400 rounded-full h-4 w-4" />
@@ -107,8 +117,11 @@ export default function Home() {
           <div className="bg-green-400 rounded-full h-4 w-4" />
         </div>
         <div className="p-6 flex flex-col h-full overflow-hidden">
-          <About />
-          <Age />
+          <div className="grid grid-cols-12 grid-rows-4">
+            <About />
+            <Spotify />
+            <Age />
+          </div>
           <hr className="border-[#032b36] my-4" />
           <div
             ref={testRef}

@@ -4,9 +4,19 @@ import moment from 'moment';
 
 const courier = CourierPrime({ subsets: ['latin'], weight: '400' });
 
+interface Current {
+  years: number;
+  months: number;
+  days: number;
+  hours: number;
+  minutes: number;
+  seconds: number;
+}
+
 const Age = () => {
-  const [current, setCurrent] = useState('');
+  const [current, setCurrent] = useState<Current>();
   const birthTime = 998078400000;
+
   useEffect(() => {
     const interval = setInterval(() => {
       const birthday = moment(birthTime);
@@ -23,16 +33,46 @@ const Age = () => {
       birthday.add(minutes, 'minutes');
       const seconds = now.diff(birthday, 'seconds');
 
-      setCurrent(
-        `${years} years, ${months} months, ${days} days, ${hours} hours, ${minutes} minutes and ${seconds} seconds`
-      );
+      setCurrent({ years, months, days, hours, minutes, seconds });
     }, 1000);
     return () => clearInterval(interval);
   }, []);
   return (
-    <div className={`${courier.className} text-lg text-green-500 mt-2`}>
+    <div className={`${courier.className} text-sm text-green-500 mt-2 col-span-8 row-start-4`}>
       Current level:&nbsp;
-      <span>{current}</span>
+      {current && (
+        <>
+          {current.years}
+          &nbsp;
+          <span className="hidden md:inline-block">years,</span>
+          <span className="inline-block md:hidden">Y,</span>
+          &nbsp;
+          {current.months}
+          &nbsp;
+          <span className="hidden md:inline-block">months,</span>
+          <span className="inline-block md:hidden">M,</span>
+          &nbsp;
+          {current.days}
+          &nbsp;
+          <span className="hidden md:inline-block">days,</span>
+          <span className="inline-block md:hidden">D,</span>
+          &nbsp;
+          {current.hours}
+          &nbsp;
+          <span className="hidden md:inline-block">hours,</span>
+          <span className="inline-block md:hidden">HRS,</span>
+          &nbsp;
+          {current.minutes}
+          &nbsp;
+          <span className="hidden md:inline-block">minutes and</span>
+          <span className="inline-block md:hidden">MINS and</span>
+          &nbsp;
+          {current.seconds}
+          &nbsp;
+          <span className="hidden md:inline-block">seconds</span>
+          <span className="inline-block md:hidden">S</span>
+        </>
+      )}
     </div>
   );
 };

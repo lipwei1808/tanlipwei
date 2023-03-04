@@ -2,6 +2,8 @@
 import Image from 'next/image';
 import { RefObject } from 'react';
 
+import styles from './console.module.scss';
+
 type ElementFields = {
   content: string;
   class?: string[];
@@ -239,38 +241,51 @@ export const technologies = [
   () => <div className="text-lg mb-4">Languages</div>,
   () => (
     <div className="flex flex-wrap gap-x-4 mb-8">
-      <svg viewBox="0 0 1024 1024" fill="#df3c6e" height="2rem" width="2rem">
-        <path d="M145.2 96l66 746.6L512 928l299.6-85.4L878.9 96H145.2zm595 177.1l-4.8 47.2-1.7 19.5H382.3l8.2 94.2h335.1l-3.3 24.3-21.2 242.2-1.7 16.2-187 51.6v.3h-1.2l-.3.1v-.1h-.1l-188.6-52L310.8 572h91.1l6.5 73.2 102.4 27.7h.4l102-27.6 11.4-118.6H510.9v-.1H306l-22.8-253.5-1.7-24.3h460.3l-1.6 24.3z" />
-      </svg>
-      <svg viewBox="0 0 32 32" fill="currentColor" height="2rem" width="2rem">
-        <path
-          fill="#2c4bdc"
-          d="M16.017 21.044zM4.743 3.519L6.792 26.5l9.194 2.552 9.22-2.556 2.051-22.977H4.743zM23 8.775l-.693 7.767-.48 5.359-.042.476-5.781 1.603-5.773-1.603-.395-4.426h2.829l.201 2.248 3.142.847.008-.002h.002l3.134-.846.329-3.655h-6.579l-.056-.633-.129-1.429-.067-.756h7.081l.258-2.886H9.203l-.056-.634-.129-1.429-.067-.756h14.118l-.068.756z"
-        />
-      </svg>
-      <svg viewBox="0 0 32 32" fill="currentColor" height="2rem" width="2rem">
-        <path
-          fill="#cccc33"
-          d="M4.698 3.419l2.057 23.073 9.231 2.563 9.256-2.566L27.301 3.42H4.697zm8.528 5.975l-.409 4.441 9.671.001-.069.76-.665 7.45-.042.478-5.804 1.609-5.796-1.609-.396-4.443h2.84l.202 2.257 3.154.85 3.156-.852.328-3.67-9.671-.001.069-.76.665-7.45.209-2.086h11.287l.131 1.598.403 4.453h-2.841l-.262-2.922-2.889-.174h-.515V9.32l-2.755.074z"
-        />
-      </svg>
       <Image
-        src="/logo/java.png"
-        alt="Java Logo"
+        src="/logo/html.svg"
+        alt="HTML5"
         width={32}
         height={32}
         style={{ height: 32, width: 'auto' }}
       />
       <Image
-        src="/logo/python.png"
-        alt="Java Logo"
+        src="/logo/css.svg"
+        alt="CSS3"
         width={32}
         height={32}
         style={{ height: 32, width: 'auto' }}
       />
       <Image
-        src="/logo/typescript.png"
-        alt="Java Logo"
+        src="/logo/javascript.svg"
+        alt="CSS3"
+        width={32}
+        height={32}
+        style={{ height: 32, width: 'auto' }}
+      />
+      <Image
+        src="/logo/java.svg"
+        alt="Java"
+        width={32}
+        height={32}
+        style={{ height: 32, width: 'auto' }}
+      />
+      <Image
+        src="/logo/python.svg"
+        alt="Python"
+        width={32}
+        height={32}
+        style={{ height: 32, width: 'auto' }}
+      />
+      <Image
+        src="/logo/typescript.svg"
+        alt="Typescript"
+        width={32}
+        height={32}
+        style={{ height: 32, width: 'auto' }}
+      />
+      <Image
+        src="/logo/c.svg"
+        alt="C"
         width={32}
         height={32}
         style={{ height: 32, width: 'auto' }}
@@ -279,22 +294,121 @@ export const technologies = [
   ),
   () => <div className="text-lg mb-4">Web Development Frameworks and Libraries</div>,
   () => (
+    <div className="flex flex-wrap gap-x-4 mb-8">
+      <Image
+        src="/logo/react.svg"
+        alt="React"
+        width={32}
+        height={32}
+        style={{ height: 32, width: 'auto' }}
+      />
+      <Image
+        src="/logo/angular.svg"
+        alt="Angular"
+        width={32}
+        height={32}
+        style={{ height: 32, width: 'auto' }}
+      />
+      <Image
+        src="/logo/nextjs.svg"
+        alt="Next.js"
+        width={32}
+        height={32}
+        style={{ height: 32, width: 'auto' }}
+      />
+      <Image
+        src="/logo/nodejs.svg"
+        alt="Nodejs"
+        width={32}
+        height={32}
+        style={{ height: 32, width: 'auto' }}
+      />
+      <Image
+        src="/logo/nestjs.svg"
+        alt="Nextjs"
+        width={32}
+        height={32}
+        style={{ height: 32, width: 'auto' }}
+      />
+      <Image
+        src="/logo/express.svg"
+        alt="Express"
+        width={32}
+        height={32}
+        style={{ height: 'auto', width: 32 }}
+      />
+    </div>
+  ),
+  () => <div className="text-lg mb-4">Others</div>,
+  () => (
     <div className="flex flex-wrap gap-x-4">
-      <svg viewBox="0 0 512 512" fill="#7ed0ef" height="2rem" width="2rem">
-        <path d="M418.2 177.2c-5.4-1.8-10.8-3.5-16.2-5.1.9-3.7 1.7-7.4 2.5-11.1 12.3-59.6 4.2-107.5-23.1-123.3-26.3-15.1-69.2.6-112.6 38.4-4.3 3.7-8.5 7.6-12.5 11.5-2.7-2.6-5.5-5.2-8.3-7.7-45.5-40.4-91.1-57.4-118.4-41.5-26.2 15.2-34 60.3-23 116.7 1.1 5.6 2.3 11.1 3.7 16.7-6.4 1.8-12.7 3.8-18.6 5.9C38.3 196.2 0 225.4 0 255.6c0 31.2 40.8 62.5 96.3 81.5 4.5 1.5 9 3 13.6 4.3-1.5 6-2.8 11.9-4 18-10.5 55.5-2.3 99.5 23.9 114.6 27 15.6 72.4-.4 116.6-39.1 3.5-3.1 7-6.3 10.5-9.7 4.4 4.3 9 8.4 13.6 12.4 42.8 36.8 85.1 51.7 111.2 36.6 27-15.6 35.8-62.9 24.4-120.5-.9-4.4-1.9-8.9-3-13.5 3.2-.9 6.3-1.9 9.4-2.9 57.7-19.1 99.5-50 99.5-81.7 0-30.3-39.4-59.7-93.8-78.4zM282.9 92.3c37.2-32.4 71.9-45.1 87.7-36 16.9 9.7 23.4 48.9 12.8 100.4-.7 3.4-1.4 6.7-2.3 10-22.2-5-44.7-8.6-67.3-10.6-13-18.6-27.2-36.4-42.6-53.1 3.9-3.7 7.7-7.2 11.7-10.7zM167.2 307.5c5.1 8.7 10.3 17.4 15.8 25.9-15.6-1.7-31.1-4.2-46.4-7.5 4.4-14.4 9.9-29.3 16.3-44.5 4.6 8.8 9.3 17.5 14.3 26.1zm-30.3-120.3c14.4-3.2 29.7-5.8 45.6-7.8-5.3 8.3-10.5 16.8-15.4 25.4-4.9 8.5-9.7 17.2-14.2 26-6.3-14.9-11.6-29.5-16-43.6zm27.4 68.9c6.6-13.8 13.8-27.3 21.4-40.6s15.8-26.2 24.4-38.9c15-1.1 30.3-1.7 45.9-1.7s31 .6 45.9 1.7c8.5 12.6 16.6 25.5 24.3 38.7s14.9 26.7 21.7 40.4c-6.7 13.8-13.9 27.4-21.6 40.8-7.6 13.3-15.7 26.2-24.2 39-14.9 1.1-30.4 1.6-46.1 1.6s-30.9-.5-45.6-1.4c-8.7-12.7-16.9-25.7-24.6-39s-14.8-26.8-21.5-40.6zm180.6 51.2c5.1-8.8 9.9-17.7 14.6-26.7 6.4 14.5 12 29.2 16.9 44.3-15.5 3.5-31.2 6.2-47 8 5.4-8.4 10.5-17 15.5-25.6zm14.4-76.5c-4.7-8.8-9.5-17.6-14.5-26.2-4.9-8.5-10-16.9-15.3-25.2 16.1 2 31.5 4.7 45.9 8-4.6 14.8-10 29.2-16.1 43.4zM256.2 118.3c10.5 11.4 20.4 23.4 29.6 35.8-19.8-.9-39.7-.9-59.5 0 9.8-12.9 19.9-24.9 29.9-35.8zM140.2 57c16.8-9.8 54.1 4.2 93.4 39 2.5 2.2 5 4.6 7.6 7-15.5 16.7-29.8 34.5-42.9 53.1-22.6 2-45 5.5-67.2 10.4-1.3-5.1-2.4-10.3-3.5-15.5-9.4-48.4-3.2-84.9 12.6-94zm-24.5 263.6c-4.2-1.2-8.3-2.5-12.4-3.9-21.3-6.7-45.5-17.3-63-31.2-10.1-7-16.9-17.8-18.8-29.9 0-18.3 31.6-41.7 77.2-57.6 5.7-2 11.5-3.8 17.3-5.5 6.8 21.7 15 43 24.5 63.6-9.6 20.9-17.9 42.5-24.8 64.5zm116.6 98c-16.5 15.1-35.6 27.1-56.4 35.3-11.1 5.3-23.9 5.8-35.3 1.3-15.9-9.2-22.5-44.5-13.5-92 1.1-5.6 2.3-11.2 3.7-16.7 22.4 4.8 45 8.1 67.9 9.8 13.2 18.7 27.7 36.6 43.2 53.4-3.2 3.1-6.4 6.1-9.6 8.9zm24.5-24.3c-10.2-11-20.4-23.2-30.3-36.3 9.6.4 19.5.6 29.5.6 10.3 0 20.4-.2 30.4-.7-9.2 12.7-19.1 24.8-29.6 36.4zm130.7 30c-.9 12.2-6.9 23.6-16.5 31.3-15.9 9.2-49.8-2.8-86.4-34.2-4.2-3.6-8.4-7.5-12.7-11.5 15.3-16.9 29.4-34.8 42.2-53.6 22.9-1.9 45.7-5.4 68.2-10.5 1 4.1 1.9 8.2 2.7 12.2 4.9 21.6 5.7 44.1 2.5 66.3zm18.2-107.5c-2.8.9-5.6 1.8-8.5 2.6-7-21.8-15.6-43.1-25.5-63.8 9.6-20.4 17.7-41.4 24.5-62.9 5.2 1.5 10.2 3.1 15 4.7 46.6 16 79.3 39.8 79.3 58 0 19.6-34.9 44.9-84.8 61.4zm-149.7-15c25.3 0 45.8-20.5 45.8-45.8s-20.5-45.8-45.8-45.8c-25.3 0-45.8 20.5-45.8 45.8s20.5 45.8 45.8 45.8z" />
-      </svg>
-      <svg viewBox="0 0 448 512" fill="#c52a37" height="2rem" width="2rem">
-        <path d="M185.7 268.1h76.2l-38.1-91.6-38.1 91.6zM223.8 32L16 106.4l31.8 275.7 176 97.9 176-97.9 31.8-275.7zM354 373.8h-48.6l-26.2-65.4H168.6l-26.2 65.4H93.7L223.8 81.5z" />
-      </svg>
-      <svg viewBox="0 0 15 15" height="2rem" width="2rem">
-        <path
-          fill="currentColor"
-          d="M4.5 4.5l.405-.293A.5.5 0 004 4.5h.5zm3 9.5A6.5 6.5 0 011 7.5H0A7.5 7.5 0 007.5 15v-1zM14 7.5A6.5 6.5 0 017.5 14v1A7.5 7.5 0 0015 7.5h-1zM7.5 1A6.5 6.5 0 0114 7.5h1A7.5 7.5 0 007.5 0v1zm0-1A7.5 7.5 0 000 7.5h1A6.5 6.5 0 017.5 1V0zM5 12V4.5H4V12h1zm-.905-7.207l6.5 9 .81-.586-6.5-9-.81.586zM10 4v6h1V4h-1z"
-        />
-      </svg>
+      <Image
+        src="/logo/git.svg"
+        alt="Git"
+        width={32}
+        height={32}
+        style={{ height: 32, width: 'auto' }}
+      />
+      <Image
+        src="/logo/tailwindcss.svg"
+        alt="Tailwindcss"
+        width={32}
+        height={32}
+        style={{ height: 32, width: 'auto' }}
+      />
+      <Image
+        src="/logo/sass.svg"
+        alt="Sass"
+        width={32}
+        height={32}
+        style={{ height: 32, width: 'auto' }}
+      />
+      <Image
+        src="/logo/docker.png"
+        alt="Docker"
+        width={32}
+        height={32}
+        style={{ height: 32, width: 'auto' }}
+      />
+      <Image
+        src="/logo/mongodb.svg"
+        alt="Mongodb"
+        width={32}
+        height={32}
+        style={{ height: 32, width: 'auto' }}
+      />
+      <Image
+        src="/logo/firebase.svg"
+        alt="Firebase"
+        width={32}
+        height={32}
+        style={{ height: 32, width: 'auto' }}
+      />
+      <Image
+        src="/logo/googlecloud.svg"
+        alt="Google Cloud"
+        width={32}
+        height={32}
+        style={{ height: 32, width: 'auto' }}
+      />
     </div>
   ),
   () => <br />,
 ];
 
 export const unknown = [() => <div>Unknown command. Try typing &quot;help&quot;</div>];
+
+export const projects = [
+  () => (
+    <div className="flex gap-x-2">
+      Still compiling
+      <div className="overflow-hidden">
+        <div className={styles.bubbleit}>.</div>
+        <div className={styles.bubbleit}>.</div>
+        <div className={styles.bubbleit}>.</div>
+        <div className={styles.bubbleit}>.</div>
+        <div className={styles.bubbleit}>.</div>
+      </div>
+    </div>
+  ),
+];
