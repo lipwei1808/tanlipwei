@@ -53,6 +53,7 @@ const Input: FC<Props> = ({ input, setInput, onEnter, inputContainer }) => {
         break;
       case 13:
         onEnter();
+        setOffset(0);
         break;
       default:
     }
@@ -77,7 +78,7 @@ const Input: FC<Props> = ({ input, setInput, onEnter, inputContainer }) => {
         ref={inputRef}
         autoFocus
         type="text"
-        className="h-0 w-0 absolute"
+        className="t-0 l-0 h-16 w-16 fixed bg-white text-black"
         value={input}
         onChange={(e) => setInput(e.target.value)}
       />
