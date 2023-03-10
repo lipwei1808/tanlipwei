@@ -29,10 +29,14 @@ const Input: FC<Props> = ({ input, setInput, onEnter, inputContainer }) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const commandRef = useRef<HTMLSpanElement>(null);
 
-  useEffect(() => {
+  const focusInput = () => {
     if (inputRef.current) {
       inputRef.current.focus();
     }
+  };
+
+  useEffect(() => {
+    focusInput();
   }, []);
 
   const onMove = (event: KeyboardEvent<HTMLInputElement>) => {
@@ -60,7 +64,13 @@ const Input: FC<Props> = ({ input, setInput, onEnter, inputContainer }) => {
   };
 
   return (
-    <div ref={inputContainer}>
+    <div
+      ref={inputContainer}
+      onClick={focusInput}
+      role="button"
+      tabIndex={0}
+      onKeyDown={focusInput}
+    >
       <div className="h-6">
         <span className="text-terminal">tanlipwei@portfolio:~$&nbsp;</span>
         <span className="whitespace-pre" ref={commandRef}>
