@@ -11,11 +11,9 @@ import {
   RefObject,
 } from 'react';
 
-import classes from './Input.module.scss';
+import HelpCommands from '@/types/HelpCommand';
 
-// TODO: Bug with input
-// How to: Type a bunch of spaces, move to the left abit then delete, monitor the value of the input
-// Will have a nbsp; appear inside suddenly
+import classes from './Input.module.scss';
 
 interface Props {
   input: string;
@@ -50,7 +48,6 @@ const Input: FC<Props> = ({ input, setInput, onEnter, inputContainer }) => {
             setOffset(-1 * commandRef.current?.offsetWidth);
           }
         }
-
         break;
       case 39: // Right
         setOffset(Math.min(offset + 9.6, 0));
@@ -58,6 +55,18 @@ const Input: FC<Props> = ({ input, setInput, onEnter, inputContainer }) => {
       case 13:
         onEnter();
         setOffset(0);
+        break;
+      case 9: // tab
+        if (!input) {
+          return;
+        }
+        event.preventDefault();
+        for (const command of Object.values(HelpCommands)) {
+          const pattern = new RegExp(`^${input}.*`);
+          if (command.match(pattern)) {
+            setInput(command);
+          }
+        }
         break;
       default:
     }

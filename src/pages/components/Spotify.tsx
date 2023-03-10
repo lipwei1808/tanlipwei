@@ -66,7 +66,7 @@ const Spotify: FC<Props> = () => {
               />
             </defs>
             <g className="textcircle">
-              <text textLength="940" className={classes.words}>
+              <text textLength="940" className={`${classes.words} ${song ? classes.move : ''}  `}>
                 {song ? (
                   <textPath
                     xlinkHref="#textcircle"

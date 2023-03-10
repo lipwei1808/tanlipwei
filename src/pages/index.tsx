@@ -11,9 +11,9 @@ import {
   unknown,
   projects,
 } from '@/lib/console';
+import HelpCommands from '@/types/HelpCommand';
 
 import About from './components/About';
-import Age from './components/Age';
 import Input from './components/Input';
 import Console from './components/Console';
 import Spotify from './components/Spotify';
@@ -68,36 +68,36 @@ export default function Home() {
       setIdx(0);
       setContent([]);
       switch (input) {
-        case 'help': {
+        case HelpCommands.HELP: {
           setContent([...helpText]);
           break;
         }
-        case 'aboutme': {
+        case HelpCommands.ABOUTME: {
           setContent([...aboutMe]);
           break;
         }
-        case 'clear': {
+        case HelpCommands.CLEAR: {
           consoleRef.current.innerHTML = '';
           setContent([...banner]);
           break;
         }
-        case 'banner': {
+        case HelpCommands.BANNER: {
           setContent([...banner]);
           break;
         }
-        case 'education': {
+        case HelpCommands.EDUCATION: {
           setContent([...education]);
           break;
         }
-        case 'technologies': {
+        case HelpCommands.TECHNOLOGIES: {
           setContent([...technologies]);
           break;
         }
-        case 'socials': {
+        case HelpCommands.SOCIALS: {
           setContent([...socials]);
           break;
         }
-        case 'projects': {
+        case HelpCommands.PROJECTS: {
           setContent([...projects]);
           break;
         }
@@ -110,17 +110,16 @@ export default function Home() {
 
   return (
     <div className="flex justify-center items-center h-screen lg:py-12">
-      <div className="max-w-screen-lg w-full bg-[#073642] overflow-hidden flex flex-col lg:rounded-xl max-h-full">
+      <div className="max-w-screen-lg w-full h-screen bg-[#073642] overflow-hidden flex flex-col lg:rounded-xl max-h-full lg:h-auto">
         <div className="bg-[#032b36] py-2 px-4 flex gap-x-2">
           <div className="bg-red-400 rounded-full h-4 w-4" />
           <div className="bg-yellow-400 rounded-full h-4 w-4" />
           <div className="bg-green-400 rounded-full h-4 w-4" />
         </div>
         <div className="p-6 flex flex-col h-full overflow-hidden">
-          <div className="grid grid-cols-12 grid-rows-4">
+          <div className="grid grid-cols-12 grid-rows-3">
             <About />
             <Spotify />
-            <Age />
           </div>
           <hr className="border-[#032b36] my-4" />
           <div

@@ -1,103 +1,72 @@
 /* eslint-disable react/jsx-curly-brace-presence */
 import Image from 'next/image';
-import { RefObject } from 'react';
+import { Fragment } from 'react';
+import { Tooltip } from 'react-tooltip';
+
+import HelpCommands from '@/types/HelpCommand';
 
 import styles from './console.module.scss';
 
-type ElementFields = {
+interface Technology {
+  src: string;
+  id: string;
   content: string;
-  class?: string[];
-};
-
-// const createSpace = (length: number, left: string, right: string) =>
-//   `${left}${'&nbsp;'.repeat(length)}${right}`;
-
-const generateElement = (fields: ElementFields, classForAll: string[]) => {
-  const next = document.createElement('p');
-  next.innerHTML = fields.content;
-  next.classList.add(...classForAll);
-  if (fields.class?.length) {
-    next.classList.add(...classForAll, ...fields.class);
-  }
-  return next;
-};
-
-export const iterateArrayWithDelay = (
-  delay: number,
-  parent: HTMLElement,
-  content: { classForAll: string[]; content: ElementFields[] },
-  inputContainer: RefObject<HTMLDivElement>
-) => {
-  let idx = 0;
-  const delayFn = () => {
-    if (idx >= content.content.length) return;
-    const next = generateElement(content.content[idx], content.classForAll);
-    const mask = document.createElement('div');
-    mask.classList.add('animateit');
-    next.appendChild(mask);
-    parent.appendChild(next);
-    idx += 1;
-    inputContainer.current?.scrollIntoView({ behavior: 'smooth' });
-    setTimeout(delayFn, delay);
-  };
-
-  delayFn();
-};
+}
 
 export const helpText = [
   () => <br />,
   () => (
     <div className="content grid grid-cols-2">
-      <span style={{ color: '#22c55e' }}>help</span>
+      <span style={{ color: '#22c55e' }}>{HelpCommands.HELP}</span>
       still need to say??
       <div className="animateit" />
     </div>
   ),
   () => (
     <div className="content grid grid-cols-2">
-      <span style={{ color: '#22c55e' }}>aboutme</span>
+      <span style={{ color: '#22c55e' }}>{HelpCommands.ABOUTME}</span>
       self introduction of myself
       <div className="animateit" />
     </div>
   ),
   () => (
     <div className="content grid grid-cols-2">
-      <span style={{ color: '#22c55e' }}>projects</span>
+      <span style={{ color: '#22c55e' }}>{HelpCommands.PROJECTS}</span>
       projects that i have done
       <div className="animateit" />
     </div>
   ),
   () => (
     <div className="content grid grid-cols-2">
-      <span style={{ color: '#22c55e' }}>education</span>
+      <span style={{ color: '#22c55e' }}>{HelpCommands.EDUCATION}</span>
       where am i studying
       <div className="animateit" />
     </div>
   ),
   () => (
     <div className="content grid grid-cols-2">
-      <span style={{ color: '#22c55e' }}>technologies</span>
+      <span style={{ color: '#22c55e' }}>{HelpCommands.TECHNOLOGIES}</span>
       technologies i have used
       <div className="animateit" />
     </div>
   ),
   () => (
     <div className="content grid grid-cols-2">
-      <span style={{ color: '#22c55e' }}>socials</span>
+      <span style={{ color: '#22c55e' }}>{HelpCommands.SOCIALS}</span>
       contact me
       <div className="animateit" />
     </div>
   ),
   () => (
     <div className="content grid grid-cols-2">
-      <span style={{ color: '#22c55e' }}>banner</span>
+      <span style={{ color: '#22c55e' }}>{HelpCommands.BANNER}</span>
       display the intro banner
       <div className="animateit" />
     </div>
   ),
   () => (
     <div className="content grid grid-cols-2">
-      <span style={{ color: '#22c55e' }}>clear</span>
+      <span style={{ color: '#22c55e' }}>{HelpCommands.CLEAR}</span>
       clear the console
       <div className="animateit" />
     </div>
@@ -236,161 +205,175 @@ export const socials = [
   ),
 ];
 
+const languages: Technology[] = [
+  {
+    src: '/logo/html.svg',
+    id: 'html',
+    content: 'HTML5',
+  },
+  {
+    src: '/logo/css.svg',
+    id: 'css',
+    content: 'CSS3',
+  },
+  {
+    src: '/logo/javascript.svg',
+    id: 'javascript',
+    content: 'Javascript',
+  },
+  {
+    src: '/logo/typescript.svg',
+    id: 'typescript',
+    content: 'Typescript',
+  },
+  {
+    src: '/logo/java.svg',
+    id: 'java',
+    content: 'Java',
+  },
+  {
+    src: '/logo/python.svg',
+    id: 'python',
+    content: 'Python',
+  },
+  {
+    src: '/logo/c.svg',
+    id: 'c',
+    content: 'C',
+  },
+];
+
+const frameworks: Technology[] = [
+  {
+    src: '/logo/react.svg',
+    id: 'react',
+    content: 'React',
+  },
+  {
+    src: '/logo/angular.svg',
+    id: 'angular',
+    content: 'Angular',
+  },
+  {
+    src: '/logo/nextjs.svg',
+    id: 'next',
+    content: 'Next.js',
+  },
+  {
+    src: '/logo/nodejs.svg',
+    id: 'nodejs',
+    content: 'Node.js',
+  },
+  {
+    src: '/logo/express.svg',
+    id: 'express',
+    content: 'Express',
+  },
+  {
+    src: '/logo/nestjs.svg',
+    id: 'nest',
+    content: 'NestJS',
+  },
+];
+
+const others: Technology[] = [
+  {
+    src: '/logo/git.svg',
+    id: 'git',
+    content: 'Git',
+  },
+  {
+    src: '/logo/tailwindcss.svg',
+    id: 'tailwindcss',
+    content: 'Tailwindcss',
+  },
+  {
+    src: '/logo/firebase.svg',
+    id: 'firebase',
+    content: 'Firebase',
+  },
+  {
+    src: '/logo/sass.svg',
+    id: 'sass',
+    content: 'Sass',
+  },
+  {
+    src: '/logo/docker.png',
+    id: 'docker',
+    content: 'Docker',
+  },
+  {
+    src: '/logo/mongodb.svg',
+    id: 'mongodb',
+    content: 'Mongodb',
+  },
+  {
+    src: '/logo/googlecloud.svg',
+    id: 'googlecloud',
+    content: 'Google Cloud Platform',
+  },
+];
+
 export const technologies = [
   () => <br />,
   () => <div className="text-lg mb-4">Languages</div>,
   () => (
     <div className="flex flex-wrap gap-x-4 mb-8">
-      <Image
-        src="/logo/html.svg"
-        alt="HTML5"
-        width={32}
-        height={32}
-        style={{ height: '2rem', width: 'auto' }}
-      />
-      <Image
-        src="/logo/css.svg"
-        alt="CSS3"
-        width={32}
-        height={32}
-        style={{ height: '2rem', width: 'auto' }}
-      />
-      <Image
-        src="/logo/javascript.svg"
-        alt="CSS3"
-        width={32}
-        height={32}
-        style={{ height: '2rem', width: 'auto' }}
-      />
-      <Image
-        src="/logo/java.svg"
-        alt="Java"
-        width={32}
-        height={32}
-        style={{ height: '2rem', width: 'auto' }}
-      />
-      <Image
-        src="/logo/python.svg"
-        alt="Python"
-        width={32}
-        height={32}
-        style={{ height: '2rem', width: 'auto' }}
-      />
-      <Image
-        src="/logo/typescript.svg"
-        alt="Typescript"
-        width={32}
-        height={32}
-        style={{ height: '2rem', width: 'auto' }}
-      />
-      <Image
-        src="/logo/c.svg"
-        alt="C"
-        width={32}
-        height={32}
-        style={{ height: '2rem', width: 'auto' }}
-      />
+      {languages.map((language) => (
+        <Fragment key={language.id}>
+          <Image
+            src={language.src}
+            alt={language.content}
+            width={32}
+            height={32}
+            style={{ height: '2rem', width: 'auto' }}
+            data-tooltip-id={language.id}
+            data-tooltip-content={language.content}
+            data-tooltip-place="bottom"
+          />
+          <Tooltip id={language.id}>{language.content}</Tooltip>
+        </Fragment>
+      ))}
     </div>
   ),
   () => <div className="text-lg mb-4">Web Development Frameworks and Libraries</div>,
   () => (
     <div className="flex flex-wrap gap-x-4 mb-8">
-      <Image
-        src="/logo/react.svg"
-        alt="React"
-        width={32}
-        height={32}
-        style={{ height: '2rem', width: 'auto' }}
-      />
-      <Image
-        src="/logo/angular.svg"
-        alt="Angular"
-        width={32}
-        height={32}
-        style={{ height: '2rem', width: 'auto' }}
-      />
-      <Image
-        src="/logo/nextjs.svg"
-        alt="Next.js"
-        width={32}
-        height={32}
-        style={{ height: '2rem', width: 'auto' }}
-      />
-      <Image
-        src="/logo/nodejs.svg"
-        alt="Nodejs"
-        width={32}
-        height={32}
-        style={{ height: '2rem', width: 'auto' }}
-      />
-      <Image
-        src="/logo/nestjs.svg"
-        alt="Nextjs"
-        width={32}
-        height={32}
-        style={{ height: '2rem', width: 'auto' }}
-      />
-      <Image
-        src="/logo/express.svg"
-        alt="Express"
-        width={32}
-        height={32}
-        style={{ height: 'auto', width: '2rem' }}
-      />
+      {frameworks.map((language) => (
+        <Fragment key={language.id}>
+          <Image
+            src={language.src}
+            alt={language.content}
+            width={32}
+            height={32}
+            style={{ height: 'auto', width: '2rem' }}
+            data-tooltip-id={language.id}
+            data-tooltip-content={language.content}
+            data-tooltip-place="bottom"
+          />
+          <Tooltip id={language.id}>{language.content}</Tooltip>
+        </Fragment>
+      ))}
     </div>
   ),
   () => <div className="text-lg mb-4">Others</div>,
   () => (
     <div className="flex flex-wrap gap-x-4">
-      <Image
-        src="/logo/git.svg"
-        alt="Git"
-        width={32}
-        height={32}
-        style={{ height: '2rem', width: 'auto' }}
-      />
-      <Image
-        src="/logo/tailwindcss.svg"
-        alt="Tailwindcss"
-        width={32}
-        height={32}
-        style={{ height: '2rem', width: 'auto' }}
-      />
-      <Image
-        src="/logo/sass.svg"
-        alt="Sass"
-        width={32}
-        height={32}
-        style={{ height: '2rem', width: 'auto' }}
-      />
-      <Image
-        src="/logo/docker.png"
-        alt="Docker"
-        width={32}
-        height={32}
-        style={{ height: '2rem', width: 'auto' }}
-      />
-      <Image
-        src="/logo/mongodb.svg"
-        alt="Mongodb"
-        width={32}
-        height={32}
-        style={{ height: '2rem', width: 'auto' }}
-      />
-      <Image
-        src="/logo/firebase.svg"
-        alt="Firebase"
-        width={32}
-        height={32}
-        style={{ height: '2rem', width: 'auto' }}
-      />
-      <Image
-        src="/logo/googlecloud.svg"
-        alt="Google Cloud"
-        width={32}
-        height={32}
-        style={{ height: '2rem', width: 'auto' }}
-      />
+      {others.map((language) => (
+        <Fragment key={language.id}>
+          <Image
+            src={language.src}
+            alt={language.content}
+            width={32}
+            height={32}
+            style={{ height: '2rem', width: 'auto' }}
+            data-tooltip-id={language.id}
+            data-tooltip-content={language.content}
+            data-tooltip-place="bottom"
+          />
+          <Tooltip id={language.id}>{language.content}</Tooltip>
+        </Fragment>
+      ))}
     </div>
   ),
   () => <br />,
