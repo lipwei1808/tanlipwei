@@ -88,7 +88,7 @@ const Input: FC<Props> = ({ input, setInput, onEnter, inputContainer }) => {
         ref={inputRef}
         autoFocus
         type="text"
-        className="t-0 l-0 h-16 w-16 fixed bg-white text-black"
+        className="h-0 w-0 absolute"
         value={input}
         onChange={(e) => setInput(e.target.value)}
       />
