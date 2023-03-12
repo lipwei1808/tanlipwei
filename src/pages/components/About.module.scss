@@ -1,9 +1,24 @@
+.cursor {
+  display: inline-block;
+  width: 9.7px;
+  height: 1.5rem;
+  animation: blinker 1s infinite;
+  background-color: white;
+  transform: translateY(4px) translateX(1px);
+}
+
 .wave {
   animation-name: wave-animation; /* Refers to the name of your @keyframes element below */
   animation-duration: 2.5s; /* Change to speed up or slow down */
   animation-iteration-count: infinite; /* Never stop waving :) */
   transform-origin: 70% 70%; /* Pivot around the bottom-left palm */
   display: inline-block;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
 }
 
 @keyframes wave-animation {

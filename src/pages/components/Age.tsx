@@ -1,8 +1,5 @@
-import { Courier_Prime as CourierPrime } from 'next/font/google';
 import { useEffect, useState } from 'react';
 import moment from 'moment';
-
-const courier = CourierPrime({ subsets: ['latin'], weight: '400' });
 
 interface Current {
   years: number;
@@ -38,7 +35,7 @@ const Age = () => {
     return () => clearInterval(interval);
   }, []);
   return (
-    <div className={`${courier.className} text-sm text-green-500 mt-2 col-span-8 row-start-4`}>
+    <div className="text-sm text-green-500 mt-2 col-span-8 row-start-4">
       Current level:&nbsp;
       {current && (
         <>

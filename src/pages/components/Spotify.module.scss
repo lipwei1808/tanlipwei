@@ -3,10 +3,14 @@
 }
 
 .words {
-  animation: rotate 10s linear 0s infinite normal;
-  transform-origin: 250px 250px;
   font-size: 2rem;
+  transform: rotate(135deg);
+  transform-origin: 250px 250px;
+}
+
+.move {
   cursor: default;
+  animation: rotate 10s linear 0s infinite normal;
 }
 
 @keyframes rotate {

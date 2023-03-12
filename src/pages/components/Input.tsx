@@ -11,11 +11,9 @@ import {
   RefObject,
 } from 'react';
 
-import classes from './Input.module.scss';
+import HelpCommands from '@/types/HelpCommand';
 
-// TODO: Bug with input
-// How to: Type a bunch of spaces, move to the left abit then delete, monitor the value of the input
-// Will have a nbsp; appear inside suddenly
+import classes from './Input.module.scss';
 
 interface Props {
   input: string;
@@ -29,10 +27,14 @@ const Input: FC<Props> = ({ input, setInput, onEnter, inputContainer }) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const commandRef = useRef<HTMLSpanElement>(null);
 
-  useEffect(() => {
+  const focusInput = () => {
     if (inputRef.current) {
       inputRef.current.focus();
     }
+  };
+
+  useEffect(() => {
+    focusInput();
   }, []);
 
   const onMove = (event: KeyboardEvent<HTMLInputElement>) => {
@@ -46,20 +48,38 @@ const Input: FC<Props> = ({ input, setInput, onEnter, inputContainer }) => {
             setOffset(-1 * commandRef.current?.offsetWidth);
           }
         }
-
         break;
       case 39: // Right
         setOffset(Math.min(offset + 9.6, 0));
         break;
       case 13:
         onEnter();
+        setOffset(0);
+        break;
+      case 9: // tab
+        if (!input) {
+          return;
+        }
+        event.preventDefault();
+        for (const command of Object.values(HelpCommands)) {
+          const pattern = new RegExp(`^${input}.*`);
+          if (command.match(pattern)) {
+            setInput(command);
+          }
+        }
         break;
       default:
     }
   };
 
   return (
-    <div ref={inputContainer}>
+    <div
+      ref={inputContainer}
+      onClick={focusInput}
+      role="button"
+      tabIndex={0}
+      onKeyDown={focusInput}
+    >
       <div className="h-6">
         <span className="text-terminal">tanlipwei@portfolio:~$&nbsp;</span>
         <span className="whitespace-pre" ref={commandRef}>

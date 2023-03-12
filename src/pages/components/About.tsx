@@ -1,15 +1,19 @@
 import Typewriter from 'typewriter-effect';
 
-import styles from './About.module.scss';
+import classes from './About.module.scss';
 
 const About = () => {
-  const me = ['Full Stack Web Developer.', 'Computer Science Student.', 'Business Student.'];
+  const me = [
+    'am an aspiring software engineer',
+    'am a computer science student',
+    'am studying business',
+  ];
   return (
     <>
       <div className="flex justify-between items-center text-xl font-bold mb-2 col-span-8 row-start-1 md:text-3xl">
         <div>
-          Hey there, I am Tan Lip Wei&nbsp;
-          <span className={styles.wave}>👋</span>
+          hi, im Lip Wei&nbsp;
+          <span className={classes.wave}>👋</span>
         </div>
       </div>
       <div className="row-start-3 col-span-8">
@@ -108,17 +112,18 @@ const About = () => {
         </div>
       </div>
       <div className="inline-block row-start-2 col-span-8">
-        I am a&nbsp;
-        <span className="inline-block">
+        i&nbsp;
+        <div className="inline-block">
           <Typewriter
             options={{
               strings: me,
               autoStart: true,
               loop: true,
-              cursorClassName: 'text-red-400',
+              cursor: '',
             }}
           />
-        </span>
+        </div>
+        <div className={classes.cursor} />
       </div>
     </>
   );
