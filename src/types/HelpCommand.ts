@@ -7,6 +7,7 @@ enum HelpCommands {
   TECHNOLOGIES = 'technologies',
   SOCIALS = 'socials',
   PROJECTS = 'projects',
+  WORK = 'work',
 }
 
 export default HelpCommands;

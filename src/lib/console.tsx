@@ -395,3 +395,5 @@ export const projects = [
     </div>
   ),
 ];
+
+export const work = [() => <br />, () => <div className="text-2xl ml-4">Work Experiences</div>];

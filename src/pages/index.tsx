@@ -10,6 +10,7 @@ import {
   helpText,
   unknown,
   projects,
+  work,
 } from '@/lib/console';
 import HelpCommands from '@/types/HelpCommand';
 
@@ -17,6 +18,7 @@ import About from './components/About';
 import Input from './components/Input';
 import Console from './components/Console';
 import Spotify from './components/Spotify';
+import classes from './index.module.scss';
 
 const sourceCodePro = SourceCodePro({ subsets: ['latin'], weight: '400' });
 
@@ -101,6 +103,10 @@ export default function Home() {
           setContent([...projects]);
           break;
         }
+        case HelpCommands.WORK: {
+          setContent([...work]);
+          break;
+        }
         default: {
           setContent([...unknown]);
         }
@@ -109,33 +115,38 @@ export default function Home() {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen lg:py-12">
-      <div className="max-w-screen-lg w-full h-screen bg-[#073642] overflow-hidden flex flex-col lg:rounded-xl max-h-full lg:h-auto">
-        <div className="bg-[#032b36] py-2 px-4 flex gap-x-2">
-          <div className="bg-red-400 rounded-full h-4 w-4" />
-          <div className="bg-yellow-400 rounded-full h-4 w-4" />
-          <div className="bg-green-400 rounded-full h-4 w-4" />
-        </div>
-        <div className="p-6 flex flex-col h-full overflow-hidden">
-          <div className="grid grid-cols-12 grid-rows-3">
-            <About />
-            <Spotify />
+    <>
+      <div className={classes.smallStars} />
+      <div className={classes.mediumStars} />
+      <div className={classes.largeStars} />
+      <div className="flex justify-center items-center h-screen lg:py-12">
+        <div className="max-w-screen-lg w-full h-screen bg-[#073642] overflow-hidden z-10 opacity-90 flex flex-col lg:rounded-xl max-h-full lg:h-auto">
+          <div className="bg-[#032b36] py-2 px-4 flex gap-x-2">
+            <div className="bg-red-400 rounded-full h-4 w-4" />
+            <div className="bg-yellow-400 rounded-full h-4 w-4" />
+            <div className="bg-green-400 rounded-full h-4 w-4" />
           </div>
-          <hr className="border-[#032b36] my-4" />
-          <div
-            ref={testRef}
-            className={`${sourceCodePro.className} overflow-scroll flex-grow flex flex-col py-4`}
-          >
-            <Console consoleRef={consoleRef} html={html} />
-            <Input
-              input={input}
-              setInput={setInput}
-              onEnter={onEnter}
-              inputContainer={inputContainer}
-            />
+          <div className="p-6 flex flex-col h-full overflow-hidden">
+            <div className="grid grid-cols-12 grid-rows-3">
+              <About />
+              <Spotify />
+            </div>
+            <hr className="border-[#032b36] my-4" />
+            <div
+              ref={testRef}
+              className={`${sourceCodePro.className} overflow-scroll flex-grow flex flex-col py-4`}
+            >
+              <Console consoleRef={consoleRef} html={html} />
+              <Input
+                input={input}
+                setInput={setInput}
+                onEnter={onEnter}
+                inputContainer={inputContainer}
+              />
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
