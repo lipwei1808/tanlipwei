@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/control-has-associated-label */
 import { Source_Code_Pro as SourceCodePro } from 'next/font/google';
 import { useState, useRef, useEffect } from 'react';
 
@@ -10,7 +11,9 @@ import {
   helpText,
   unknown,
   projects,
-  work,
+  internships,
+  skilio,
+  works,
 } from '@/lib/console';
 import HelpCommands from '@/types/HelpCommand';
 
@@ -103,8 +106,20 @@ export default function Home() {
           setContent([...projects]);
           break;
         }
-        case HelpCommands.WORK: {
-          setContent([...work]);
+        case HelpCommands.INTERNSHIPS: {
+          setContent([...internships]);
+          break;
+        }
+        case HelpCommands.ADMIN: {
+          setContent([...internships]);
+          break;
+        }
+        case HelpCommands.SKILIO: {
+          setContent([...skilio]);
+          break;
+        }
+        case HelpCommands.WORKS: {
+          setContent([...works]);
           break;
         }
         default: {
@@ -116,15 +131,25 @@ export default function Home() {
 
   return (
     <>
-      <div className={classes.smallStars} />
-      <div className={classes.mediumStars} />
-      <div className={classes.largeStars} />
+      <div className={`${classes.smallStars} ${classes.star}`} />
+      <div className={`${classes.mediumStars} ${classes.star}`} />
+      <div className={`${classes.largeStars} ${classes.star}`} />
       <div className="flex justify-center items-center h-screen lg:py-12">
-        <div className="max-w-screen-lg w-full h-screen bg-[#073642] overflow-hidden z-10 opacity-90 flex flex-col lg:rounded-xl max-h-full lg:h-auto">
+        <div className="max-w-screen-lg w-full h-screen bg-[#073642] overflow-hidden z-10 bg-opacity-80 flex flex-col lg:rounded-xl max-h-full lg:h-auto">
           <div className="bg-[#032b36] py-2 px-4 flex gap-x-2">
             <div className="bg-red-400 rounded-full h-4 w-4" />
             <div className="bg-yellow-400 rounded-full h-4 w-4" />
-            <div className="bg-green-400 rounded-full h-4 w-4" />
+            <div
+              onClick={() => {
+                alert('You hacked me!!');
+              }}
+              role="button"
+              tabIndex={-1}
+              onKeyDown={() => {
+                console.log('You hacked me!!');
+              }}
+              className="bg-green-400 rounded-full h-4 w-4"
+            />
           </div>
           <div className="p-6 flex flex-col h-full overflow-hidden">
             <div className="grid grid-cols-12 grid-rows-3">

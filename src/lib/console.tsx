@@ -7,12 +7,6 @@ import HelpCommands from '@/types/HelpCommand';
 
 import styles from './console.module.scss';
 
-interface Technology {
-  src: string;
-  id: string;
-  content: string;
-}
-
 export const helpText = [
   () => <br />,
   () => (
@@ -68,6 +62,20 @@ export const helpText = [
     <div className="content grid grid-cols-2">
       <span style={{ color: '#22c55e' }}>{HelpCommands.CLEAR}</span>
       clear the console
+      <div className="animateit" />
+    </div>
+  ),
+  () => (
+    <div className="content grid grid-cols-2">
+      <span style={{ color: '#22c55e' }}>{HelpCommands.INTERNSHIPS}</span>
+      some of my internship experiences
+      <div className="animateit" />
+    </div>
+  ),
+  () => (
+    <div className="content grid grid-cols-2">
+      <span style={{ color: '#22c55e' }}>{HelpCommands.ADMIN}</span>
+      Hack my terminal
       <div className="animateit" />
     </div>
   ),
@@ -205,113 +213,19 @@ export const socials = [
   ),
 ];
 
-const languages: Technology[] = [
-  {
-    src: '/logo/html.svg',
-    id: 'html',
-    content: 'HTML5',
-  },
-  {
-    src: '/logo/css.svg',
-    id: 'css',
-    content: 'CSS3',
-  },
-  {
-    src: '/logo/javascript.svg',
-    id: 'javascript',
-    content: 'Javascript',
-  },
-  {
-    src: '/logo/typescript.svg',
-    id: 'typescript',
-    content: 'Typescript',
-  },
-  {
-    src: '/logo/java.svg',
-    id: 'java',
-    content: 'Java',
-  },
-  {
-    src: '/logo/python.svg',
-    id: 'python',
-    content: 'Python',
-  },
-  {
-    src: '/logo/c.svg',
-    id: 'c',
-    content: 'C',
-  },
-];
+const languages = ['HTML5', 'CSS3', 'Javascript', 'Typescript', 'Java', 'Python', 'C'];
 
-const frameworks: Technology[] = [
-  {
-    src: '/logo/react.svg',
-    id: 'react',
-    content: 'React',
-  },
-  {
-    src: '/logo/angular.svg',
-    id: 'angular',
-    content: 'Angular',
-  },
-  {
-    src: '/logo/nextjs.svg',
-    id: 'next',
-    content: 'Next.js',
-  },
-  {
-    src: '/logo/nodejs.svg',
-    id: 'nodejs',
-    content: 'Node.js',
-  },
-  {
-    src: '/logo/express.svg',
-    id: 'express',
-    content: 'Express',
-  },
-  {
-    src: '/logo/nestjs.svg',
-    id: 'nest',
-    content: 'NestJS',
-  },
-];
+const frameworks = ['React', 'Angular', 'Nextjs', 'Nodejs', 'Express', 'Nestjs'];
 
-const others: Technology[] = [
-  {
-    src: '/logo/git.svg',
-    id: 'git',
-    content: 'Git',
-  },
-  {
-    src: '/logo/tailwindcss.svg',
-    id: 'tailwindcss',
-    content: 'Tailwindcss',
-  },
-  {
-    src: '/logo/firebase.svg',
-    id: 'firebase',
-    content: 'Firebase',
-  },
-  {
-    src: '/logo/sass.svg',
-    id: 'sass',
-    content: 'Sass',
-  },
-  {
-    src: '/logo/docker.png',
-    id: 'docker',
-    content: 'Docker',
-  },
-  {
-    src: '/logo/mongodb.svg',
-    id: 'mongodb',
-    content: 'Mongodb',
-  },
-  {
-    src: '/logo/googlecloud.svg',
-    id: 'googlecloud',
-    content: 'Google Cloud Platform',
-  },
+const others = [
+  'Git',
+  'Tailwindcss',
+  'Firebase',
+  'Sass',
+  'Docker',
+  'Mongodb',
+  'Google Cloud',
+  'Netlify',
 ];
 
 export const technologies = [
@@ -320,18 +234,18 @@ export const technologies = [
   () => (
     <div className="flex flex-wrap gap-x-4 mb-8">
       {languages.map((language) => (
-        <Fragment key={language.id}>
+        <Fragment key={language}>
           <Image
-            src={language.src}
-            alt={language.content}
+            src={`/logo/${language}.svg`}
+            alt={language}
             width={32}
             height={32}
             style={{ height: 'auto', width: '2rem' }}
-            data-tooltip-id={language.id}
-            data-tooltip-content={language.content}
+            data-tooltip-id={language}
+            data-tooltip-content={language}
             data-tooltip-place="bottom"
           />
-          <Tooltip id={language.id}>{language.content}</Tooltip>
+          <Tooltip id={language}>{language}</Tooltip>
         </Fragment>
       ))}
     </div>
@@ -340,18 +254,18 @@ export const technologies = [
   () => (
     <div className="flex flex-wrap gap-x-4 mb-8">
       {frameworks.map((language) => (
-        <Fragment key={language.id}>
+        <Fragment key={language}>
           <Image
-            src={language.src}
-            alt={language.content}
+            src={`/logo/${language}.svg`}
+            alt={language}
             width={32}
             height={32}
             style={{ height: 'auto', width: '2rem' }}
-            data-tooltip-id={language.id}
-            data-tooltip-content={language.content}
+            data-tooltip-id={language}
+            data-tooltip-content={language}
             data-tooltip-place="bottom"
           />
-          <Tooltip id={language.id}>{language.content}</Tooltip>
+          <Tooltip id={language}>{language}</Tooltip>
         </Fragment>
       ))}
     </div>
@@ -360,18 +274,18 @@ export const technologies = [
   () => (
     <div className="flex flex-wrap gap-x-4">
       {others.map((language) => (
-        <Fragment key={language.id}>
+        <Fragment key={language}>
           <Image
-            src={language.src}
-            alt={language.content}
+            src={`/logo/${language}.svg`}
+            alt={language}
             width={32}
             height={32}
             style={{ height: 'auto', width: '2rem' }}
-            data-tooltip-id={language.id}
-            data-tooltip-content={language.content}
+            data-tooltip-id={language}
+            data-tooltip-content={language}
             data-tooltip-place="bottom"
           />
-          <Tooltip id={language.id}>{language.content}</Tooltip>
+          <Tooltip id={language}>{language}</Tooltip>
         </Fragment>
       ))}
     </div>
@@ -396,4 +310,131 @@ export const projects = [
   ),
 ];
 
-export const work = [() => <br />, () => <div className="text-2xl ml-4">Work Experiences</div>];
+export const internships = [
+  () => (
+    <div>
+      <div>Which company?</div>
+      <div>1. Skilio</div>
+      <div>2. Works</div>
+      <div>Enter: (skilio/works)</div>
+    </div>
+  ),
+];
+
+const worksTechnology = [
+  'HTML5',
+  'CSS3',
+  'Sass',
+  'Angular',
+  'Typescript',
+  'Nodejs',
+  'Express',
+  'Git',
+  'Firebase',
+  'Docker',
+  'Mongodb',
+  'Google Cloud',
+];
+
+const skilioTechnology = [
+  'HTML5',
+  'CSS3',
+  'Typescript',
+  'React',
+  'Nextjs',
+  'Tailwindcss',
+  'Git',
+  'Firebase',
+  'Docker',
+  'Netlify',
+  'Mongodb',
+];
+
+export const works = [
+  () => <br />,
+  () => (
+    <a href="https://www.works.so" target="_blank" rel="noreferrer">
+      <div className="text-xl mb-2">Works (Nov 2021 - May 2022)</div>
+      <div className="italic text-lg mb-5">Front-end Developer</div>
+      <Image src="/images/works.png" alt="Works web page" width={488} height={200} />
+    </a>
+  ),
+  () => (
+    <ul className="pl-4 text-gray-400 my-4">
+      <li className="list-disc">
+        Led a team of 3 to accelerate product development attaining 100 new applications in a month
+      </li>
+      <li className="list-disc">
+        Spearheaded SEO optimisation efforts contributing to 90% improvement in Semrush&lquo;s site
+        health
+      </li>
+      <li className="list-disc">
+        Designed CICD pipeline to automate building, testing and deployment to staging site
+      </li>
+    </ul>
+  ),
+  () => (
+    <div className="flex flex-wrap gap-x-4">
+      {worksTechnology.map((language) => (
+        <Fragment key={language}>
+          <Image
+            src={`/logo/${language}.svg`}
+            alt={language}
+            width={32}
+            height={32}
+            style={{ height: 'auto', width: '2rem' }}
+            data-tooltip-id={language}
+            data-tooltip-content={language}
+            data-tooltip-place="bottom"
+          />
+          <Tooltip id={language}>{language}</Tooltip>
+        </Fragment>
+      ))}
+    </div>
+  ),
+  () => <br />,
+];
+
+export const skilio = [
+  () => <br />,
+  () => (
+    <a href="https://www.skilio.co" target="_blank" rel="noreferrer">
+      <div className="text-xl mb-2">Skilio (Jan 2022 - Oct 2022)</div>
+      <div className="italic text-lg mb-5">Full-Stack Engineer</div>
+      <Image src="/images/skilio.png" alt="Skilio web page" width={488} height={200} />
+    </a>
+  ),
+  () => (
+    <ul className="pl-4 text-gray-400 my-4">
+      <li className="list-disc">
+        Pioneered the Front-end development and migration to Nextjs project
+      </li>
+      <li className="list-disc">
+        Led the design and development of shared UI library used in a Micro-Frontend application
+      </li>
+      <li className="list-disc">
+        Designed CICD pipeline to automate building, testing and deployment to staging site
+      </li>
+    </ul>
+  ),
+  () => (
+    <div className="flex flex-wrap gap-x-4">
+      {skilioTechnology.map((language) => (
+        <Fragment key={language}>
+          <Image
+            src={`/logo/${language}.svg`}
+            alt={language}
+            width={32}
+            height={32}
+            style={{ height: 'auto', width: '2rem' }}
+            data-tooltip-id={language}
+            data-tooltip-content={language}
+            data-tooltip-place="bottom"
+          />
+          <Tooltip id={language}>{language}</Tooltip>
+        </Fragment>
+      ))}
+    </div>
+  ),
+  () => <br />,
+];

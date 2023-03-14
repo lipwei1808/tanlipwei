@@ -1,3 +1,12 @@
+.star {
+  background: transparent;
+  display: none;
+
+  @media only screen and (min-width: 1024px) {
+    display: block;
+  }
+}
+
 .smallStars {
   width: 1px;
   height: 1px;
@@ -402,7 +411,7 @@
   width: 3px;
   height: 3px;
   background: transparent;
-  animation: animStar 150s linear infinte;
+  animation: animStar 150s linear infinite;
   box-shadow: 387px 1878px #fff, 760px 1564px #fff, 1487px 999px #fff, 948px 1828px #fff,
     1977px 1001px #fff, 1284px 1963px #fff, 656px 284px #fff, 1268px 1635px #fff, 1820px 598px #fff,
     642px 1900px #fff, 296px 57px #fff, 921px 1620px #fff, 476px 1858px #fff, 658px 613px #fff,
