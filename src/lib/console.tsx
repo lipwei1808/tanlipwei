@@ -250,7 +250,7 @@ export const technologies = [
       {languages.map((language) => (
         <Fragment key={language}>
           <Image
-            src={`/logo/${language}.svg`}
+            src={`/logo/${language.toLowerCase()}.svg`}
             alt={language}
             width={32}
             height={32}
@@ -270,7 +270,7 @@ export const technologies = [
       {frameworks.map((language) => (
         <Fragment key={language}>
           <Image
-            src={`/logo/${language}.svg`}
+            src={`/logo/${language.toLowerCase()}.svg`}
             alt={language}
             width={32}
             height={32}
@@ -290,7 +290,7 @@ export const technologies = [
       {others.map((language) => (
         <Fragment key={language}>
           <Image
-            src={`/logo/${language}.svg`}
+            src={`/logo/${language.toLowerCase()}.svg`}
             alt={language}
             width={32}
             height={32}
@@ -392,7 +392,7 @@ export const works = [
       {worksTechnology.map((language) => (
         <Fragment key={language}>
           <Image
-            src={`/logo/${language}.svg`}
+            src={`/logo/${language.toLowerCase()}.svg`}
             alt={language}
             width={32}
             height={32}
@@ -436,7 +436,7 @@ export const skilio = [
       {skilioTechnology.map((language) => (
         <Fragment key={language}>
           <Image
-            src={`/logo/${language}.svg`}
+            src={`/logo/${language.toLowerCase()}.svg`}
             alt={language}
             width={32}
             height={32}
