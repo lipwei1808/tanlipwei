@@ -19,7 +19,10 @@
     "react/jsx-filename-extension": [2, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
     "react/function-component-definition": [
       2,
-      { "namedComponents": ["arrow-function", "function-declaration"] }
+      {
+        "namedComponents": ["arrow-function", "function-declaration"],
+        "unnamedComponents": ["arrow-function"]
+      }
     ],
     "react/jsx-pascal-case": [
       1,

@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import { Source_Code_Pro as SourceCodePro } from 'next/font/google';
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useContext } from 'react';
 
 import {
   banner,
@@ -22,17 +22,22 @@ import Input from './components/Input';
 import Console from './components/Console';
 import Spotify from './components/Spotify';
 import classes from './index.module.scss';
+import { InputContext } from './contexts/InputContext';
 
-const sourceCodePro = SourceCodePro({ subsets: ['latin'], weight: '400' });
+const sourceCodePro = SourceCodePro({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700', '800'],
+  style: ['italic', 'normal'],
+});
 
 export default function Home() {
-  const [input, setInput] = useState('');
   const [html, setHtml] = useState<(() => JSX.Element)[]>([]);
   const [content, setContent] = useState<(() => JSX.Element)[]>([]);
   const [idx, setIdx] = useState(0);
   const consoleRef = useRef<HTMLDivElement>(null);
   const inputContainer = useRef<HTMLDivElement>(null);
   const testRef = useRef<HTMLDivElement>(null);
+  const { input, setInput } = useContext(InputContext);
 
   useEffect(() => {
     if (consoleRef.current) {
@@ -162,12 +167,7 @@ export default function Home() {
               className={`${sourceCodePro.className} overflow-scroll flex-grow flex flex-col py-4`}
             >
               <Console consoleRef={consoleRef} html={html} />
-              <Input
-                input={input}
-                setInput={setInput}
-                onEnter={onEnter}
-                inputContainer={inputContainer}
-              />
+              <Input onEnter={onEnter} inputContainer={inputContainer} />
             </div>
           </div>
         </div>

@@ -1,37 +1,6 @@
 #command::before {
   content: 'tanlipwei@portfolio:~$ ';
   color: rgb(133, 149, 46);
-}
-
-.content {
-  position: relative;
-  margin-left: 0.5rem;
-
-  & a {
-    &:hover {
-      color: #2354a8;
-      text-decoration: underline;
-    }
-  }
-}
-
-.animateit {
-  position: absolute;
-  right: 0;
-  top: 0;
-  height: 100%;
-  animation: typing 0.5s steps(30, end);
-  white-space: pre;
-  overflow: hidden;
-  z-index: 100;
-  background-color: #073642;
-}
-
-@keyframes typing {
-  from {
-    width: 100%;
-  }
-  to {
-    width: 0;
-  }
+  font-family: Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
+    Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }

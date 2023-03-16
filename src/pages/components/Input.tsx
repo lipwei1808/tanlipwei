@@ -1,31 +1,23 @@
 /* eslint-disable jsx-a11y/no-autofocus */
 
-import {
-  FC,
-  useEffect,
-  useRef,
-  useState,
-  KeyboardEvent,
-  Dispatch,
-  SetStateAction,
-  RefObject,
-} from 'react';
+import { FC, useEffect, useRef, useState, KeyboardEvent, RefObject, useContext } from 'react';
 
 import HelpCommands from '@/types/HelpCommand';
+
+import { InputContext } from '../contexts/InputContext';
 
 import classes from './Input.module.scss';
 
 interface Props {
-  input: string;
-  setInput: Dispatch<SetStateAction<string>>;
   onEnter: () => void;
   inputContainer: RefObject<HTMLDivElement>;
 }
 
-const Input: FC<Props> = ({ input, setInput, onEnter, inputContainer }) => {
+const Input: FC<Props> = ({ onEnter, inputContainer }) => {
   const [offset, setOffset] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
   const commandRef = useRef<HTMLSpanElement>(null);
+  const { input, setInput } = useContext(InputContext);
 
   const focusInput = () => {
     if (inputRef.current) {
