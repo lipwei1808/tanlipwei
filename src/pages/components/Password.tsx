@@ -19,9 +19,9 @@ const Password = () => {
       <Modal open={open} setOpen={setOpen}>
         <div>You hacked me!! Password:</div>
         <div className="flex flex-col">
-          <span className="whitespace-pre">{'o |  _      _   _  _   _| o ._   _  '}</span>
+          <span className="whitespace-pre leading-2">{'o |  _      _   _  _   _| o ._   _  '}</span>
           <span className="whitespace-pre">{'| | (_) \\/ (/_ (_ (_) (_| | | | (_| '}</span>
-          <span className="whitespace-pre">{'                                 _|'}</span>
+          <span className="whitespace-pre leading-2">{'                                _|'}</span>
         </div>
         <button
           className="px-4 py-2 border border-iterm-green-400 rounded-xl hover:bg-iterm-green-500"
