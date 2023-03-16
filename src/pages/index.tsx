@@ -48,8 +48,8 @@ export default function Home() {
 
     if (idx < content.length) {
       const timer = setTimeout(() => {
-        if (html.length >= 80) {
-          const subArray = html.slice(10);
+        if (html.length >= 200) {
+          const subArray = html.slice(50);
           setHtml([...subArray, content[idx]]);
         } else {
           setHtml((prev) => [...prev, content[idx]]);
