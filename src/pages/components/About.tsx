@@ -124,7 +124,7 @@ const About = () => {
           />
         </div>
         <div className={classes.cursor} />
-        <div className="absolute top-0 right-0 opacity-80 h-full w-6 bg-gradient-to-r from-transparent to-iterm-green-400" />
+        <div className="block absolute top-0 right-0 opacity-80 h-full w-6 bg-gradient-to-r from-transparent to-iterm-green-400 lg:hidden" />
       </div>
     </>
   );
