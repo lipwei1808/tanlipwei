@@ -8,9 +8,7 @@ import { InputContext } from '@/pages/contexts/InputContext';
 
 import classes from './console.module.scss';
 
-export const inputCommand: FC<{ input: string }> = ({ input }) => (
-  <div className={classes.command}>{input}</div>
-);
+export const inputCommand = (input: string) => () => <div className={classes.command}>{input}</div>;
 
 const HelpComponent: FC<{ command: HelpCommands; caption: string }> = ({ command, caption }) => {
   const { setInput } = useContext(InputContext);
@@ -120,11 +118,11 @@ export const education = [
   () => <div className="whitespace-pre">{'╚═╝  ╚═══╝  ╚═════╝ ╚══════╝'}</div>,
   () => (
     <div className="flex justify-between items-center">
-      <span className="text-2xl ml-4">National University of Singapore</span>
+      <span className="text-2xl ">National University of Singapore</span>
       <span>2022 - Present</span>
     </div>
   ),
-  () => <div className="text-lg ml-4">Computer Science and Business Administration</div>,
+  () => <div className="text-lg">Computer Science and Business Administration</div>,
   () => <hr className="my-4" />,
   () => <div className="whitespace-pre">{'██╗    ██╗      ██╗ ██████╗'}</div>,
   () => <div className="whitespace-pre">{'██║    ██║      ██║██╔════╝'}</div>,
@@ -132,8 +130,13 @@ export const education = [
   () => <div className="whitespace-pre">{'╚██╗ ██╔╝██   ██║██║     '}</div>,
   () => <div className="whitespace-pre">{' ╚████╔╝ ╚█████╔╝╚██████╗'}</div>,
   () => <div className="whitespace-pre">{'  ╚═══╝     ╚════╝  ╚═════╝'}</div>,
-  () => <div className="text-2xl ml-4">Victoria Junior College</div>,
-  () => <div className="text-lg ml-4">90RP</div>,
+  () => (
+    <div className="flex justify-between items-center">
+      <span className="text-2xl ">Victoria Junior College</span>
+      <span>2018 - 2019</span>
+    </div>
+  ),
+  () => <div className="text-lg">90RP</div>,
   () => <br />,
 ];
 
@@ -449,3 +452,5 @@ export const skilio = [
   ),
   () => <br />,
 ];
+
+export const hack = [];

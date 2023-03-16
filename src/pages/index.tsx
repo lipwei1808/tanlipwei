@@ -14,6 +14,7 @@ import {
   internships,
   skilio,
   works,
+  inputCommand,
 } from '@/lib/console';
 import HelpCommands from '@/types/HelpCommand';
 
@@ -70,20 +71,17 @@ export default function Home() {
 
   const onEnter = () => {
     if (consoleRef.current) {
-      const nextEl = document.createElement('p');
-      nextEl.innerHTML = input;
-      nextEl.id = 'command';
-      consoleRef.current.appendChild(nextEl);
+      const arr = [inputCommand(input)];
       setInput('');
       setIdx(0);
       setContent([]);
       switch (input) {
         case HelpCommands.HELP: {
-          setContent([...helpText]);
+          setContent(arr.concat([...helpText]));
           break;
         }
         case HelpCommands.ABOUTME: {
-          setContent([...aboutMe]);
+          setContent(arr.concat([...aboutMe]));
           break;
         }
         case HelpCommands.CLEAR: {
@@ -92,43 +90,43 @@ export default function Home() {
           break;
         }
         case HelpCommands.BANNER: {
-          setContent([...banner]);
+          setContent(arr.concat([...banner]));
           break;
         }
         case HelpCommands.EDUCATION: {
-          setContent([...education]);
+          setContent(arr.concat([...education]));
           break;
         }
         case HelpCommands.TECHNOLOGIES: {
-          setContent([...technologies]);
+          setContent(arr.concat([...technologies]));
           break;
         }
         case HelpCommands.SOCIALS: {
-          setContent([...socials]);
+          setContent(arr.concat([...socials]));
           break;
         }
         case HelpCommands.PROJECTS: {
-          setContent([...projects]);
+          setContent(arr.concat([...projects]));
           break;
         }
         case HelpCommands.INTERNSHIPS: {
-          setContent([...internships]);
+          setContent(arr.concat([...internships]));
           break;
         }
         case HelpCommands.ADMIN: {
-          setContent([...internships]);
+          setContent(arr.concat([...internships]));
           break;
         }
         case HelpCommands.SKILIO: {
-          setContent([...skilio]);
+          setContent(arr.concat([...skilio]));
           break;
         }
         case HelpCommands.WORKS: {
-          setContent([...works]);
+          setContent(arr.concat([...works]));
           break;
         }
         default: {
-          setContent([...unknown]);
+          setContent(arr.concat([...unknown]));
         }
       }
     }
@@ -140,8 +138,8 @@ export default function Home() {
       <div className={`${classes.mediumStars} ${classes.star}`} />
       <div className={`${classes.largeStars} ${classes.star}`} />
       <div className="flex justify-center items-center h-screen lg:py-12">
-        <div className="max-w-screen-lg w-full h-screen bg-[#073642] overflow-hidden z-10 bg-opacity-80 flex flex-col lg:rounded-xl max-h-full lg:h-auto">
-          <div className="bg-[#032b36] py-2 px-4 flex gap-x-2">
+        <div className="max-w-screen-lg w-full h-screen bg-iterm-green-400 overflow-hidden z-10 bg-opacity-80 flex flex-col lg:rounded-xl max-h-full lg:h-auto">
+          <div className="bg-iterm-green-500 py-2 px-4 flex gap-x-2">
             <div className="bg-red-400 rounded-full h-4 w-4" />
             <div className="bg-yellow-400 rounded-full h-4 w-4" />
             <div
@@ -161,7 +159,7 @@ export default function Home() {
               <About />
               <Spotify />
             </div>
-            <hr className="border-[#032b36] my-4" />
+            <hr className="border-iterm-green-600 my-4" />
             <div
               ref={testRef}
               className={`${sourceCodePro.className} overflow-scroll flex-grow flex flex-col py-4`}

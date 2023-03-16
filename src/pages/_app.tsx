@@ -2,7 +2,6 @@ import { Fira_Code as FiraCode } from 'next/font/google';
 import 'react-tooltip/dist/react-tooltip.css';
 
 import '@/styles/globals.css';
-import '@/styles/globals.scss';
 
 import InputProvider from './contexts/InputContext';
 

@@ -1,7 +1,7 @@
 .command {
   &::before {
     content: 'tanlipwei@portfolio:~$ ';
-    color: rgb(133, 149, 46);
+    color: theme('colors.terminal.base');
   }
 }
 

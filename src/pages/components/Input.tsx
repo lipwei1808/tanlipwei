@@ -73,7 +73,7 @@ const Input: FC<Props> = ({ onEnter, inputContainer }) => {
       onKeyDown={focusInput}
     >
       <div className="h-6">
-        <span className="text-terminal">tanlipwei@portfolio:~$&nbsp;</span>
+        <span className="text-terminal-base">tanlipwei@portfolio:~$&nbsp;</span>
         <span className="whitespace-pre" ref={commandRef}>
           {input}
         </span>
