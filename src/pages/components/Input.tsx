@@ -5,6 +5,7 @@ import { FC, useEffect, useRef, useState, KeyboardEvent, RefObject, useContext }
 import HelpCommands from '@/types/HelpCommand';
 
 import { InputContext } from '../contexts/InputContext';
+import { ActiveElementContext } from '../contexts/ActiveElementContext';
 
 import classes from './Input.module.scss';
 
@@ -14,34 +15,17 @@ interface Props {
 }
 
 const Input: FC<Props> = ({ onEnter, inputContainer }) => {
-  const [activeElement, setActiveElement] = useState<Element | null>();
   const [offset, setOffset] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
   const commandRef = useRef<HTMLSpanElement>(null);
   const { input, setInput } = useContext(InputContext);
+  const activeElement = useContext(ActiveElementContext);
 
   const focusInput = () => {
     if (inputRef.current) {
       inputRef.current.focus();
     }
   };
-
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      setActiveElement(document.activeElement);
-    }
-  }, []);
-
-  const handleFocusIn = () => {
-    setActiveElement(document.activeElement);
-  };
-
-  useEffect(() => {
-    document.addEventListener('focusin', handleFocusIn);
-    return () => {
-      document.removeEventListener('focusin', handleFocusIn);
-    };
-  }, []);
 
   useEffect(() => {
     focusInput();

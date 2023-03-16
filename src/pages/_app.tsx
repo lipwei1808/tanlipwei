@@ -4,6 +4,7 @@ import 'react-tooltip/dist/react-tooltip.css';
 import '@/styles/globals.css';
 
 import InputProvider from './contexts/InputContext';
+import ActiveElementProvider from './contexts/ActiveElementContext';
 
 import type { AppProps } from 'next/app';
 
@@ -15,10 +16,12 @@ const sourceCodePro = SourceCodePro({
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <InputProvider>
-      <main className={sourceCodePro.className}>
-        <Component {...pageProps} />
-      </main>
-    </InputProvider>
+    <ActiveElementProvider>
+      <InputProvider>
+        <main className={sourceCodePro.className}>
+          <Component {...pageProps} />
+        </main>
+      </InputProvider>
+    </ActiveElementProvider>
   );
 }
