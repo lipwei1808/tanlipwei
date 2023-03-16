@@ -2,11 +2,14 @@
   position: relative;
   display: inline-block;
   font-size: 12px;
-  animation: blinker 1s infinite;
   background-color: white;
   width: 9.7px;
   height: 1.5rem;
   transform: translateY(4px) translateX(1px);
+}
+
+.animateCursor {
+  animation: blinker 1s infinite;
 }
 
 @keyframes blinker {

@@ -1,17 +1,27 @@
-import { Inter } from 'next/font/google';
+import { Source_Code_Pro as SourceCodePro } from 'next/font/google';
+import 'react-tooltip/dist/react-tooltip.css';
 
 import '@/styles/globals.css';
-import '@/styles/globals.scss';
+
+import InputProvider from './contexts/InputContext';
+import ActiveElementProvider from './contexts/ActiveElementContext';
 
 import type { AppProps } from 'next/app';
 
-// If loading a variable font, you don't need to specify the font weight
-const inter = Inter({ subsets: ['latin'] });
+const sourceCodePro = SourceCodePro({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700', '800'],
+  style: ['italic', 'normal'],
+});
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <main className={inter.className}>
-      <Component {...pageProps} />
-    </main>
+    <ActiveElementProvider>
+      <InputProvider>
+        <main className={sourceCodePro.className}>
+          <Component {...pageProps} />
+        </main>
+      </InputProvider>
+    </ActiveElementProvider>
   );
 }

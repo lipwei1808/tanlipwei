@@ -19,7 +19,10 @@
     "react/jsx-filename-extension": [2, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
     "react/function-component-definition": [
       2,
-      { "namedComponents": ["arrow-function", "function-declaration"] }
+      {
+        "namedComponents": ["arrow-function", "function-declaration"],
+        "unnamedComponents": ["arrow-function"]
+      }
     ],
     "react/jsx-pascal-case": [
       1,
@@ -89,7 +92,8 @@
     "@typescript-eslint/no-shadow": "warn",
     "react/no-danger": "off", // Can be offed as we are using the jam3 version above already
     "operator-linebreak": "off", // Check this issue https://github.com/prettier/prettier/issues/3806. Can on after PR update.
-    "no-undef": "off" // Suggested to be removed from typescript-eslint [https://stackoverflow.com/questions/64170868/why-eslint-consider-jsx-or-some-react-types-undefined-since-upgrade-typescript]
+    "no-undef": "off", // Suggested to be removed from typescript-eslint [https://stackoverflow.com/questions/64170868/why-eslint-consider-jsx-or-some-react-types-undefined-since-upgrade-typescript]
+    "no-restricted-syntax": ["error", "ForInStatement", "LabeledStatement", "WithStatement"] // To enable forOf loops which is disbaled by airBnb
   },
   "settings": {
     "import/resolver": {
