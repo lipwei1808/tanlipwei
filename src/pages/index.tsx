@@ -45,9 +45,15 @@ export default function Home() {
   useEffect(() => {
     const node = inputContainer.current;
     const container = testRef.current;
+
     if (idx < content.length) {
       const timer = setTimeout(() => {
-        setHtml((prev) => [...prev, content[idx]]);
+        if (html.length >= 80) {
+          const subArray = html.slice(10);
+          setHtml([...subArray, content[idx]]);
+        } else {
+          setHtml((prev) => [...prev, content[idx]]);
+        }
         setIdx((prev) => prev + 1);
       }, 80);
       return () => {
@@ -80,8 +86,7 @@ export default function Home() {
           break;
         }
         case HelpCommands.CLEAR: {
-          consoleRef.current.innerHTML = '';
-          setContent([...banner]);
+          setHtml([]);
           break;
         }
         case HelpCommands.BANNER: {
@@ -109,7 +114,6 @@ export default function Home() {
           break;
         }
         case HelpCommands.ADMIN: {
-          // setContent(arr.concat([...hack]));
           setOpen(true);
           break;
         }

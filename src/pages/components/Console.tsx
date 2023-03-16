@@ -13,8 +13,9 @@ interface Props {
 
 const Console: FC<Props> = ({ consoleRef, html }) => (
   <div ref={consoleRef}>
-    {html?.length &&
-      Children.toArray(html.map((el) => <div className={inter.className}>{el()}</div>))}
+    {html?.length
+      ? Children.toArray(html.map((el) => <div className={inter.className}>{el()}</div>))
+      : undefined}
   </div>
 );
 
