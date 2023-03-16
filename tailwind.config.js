@@ -3,6 +3,9 @@ module.exports = {
   content: ['./src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
+      lineHeight: {
+        2: '.5rem',
+      },
       colors: {
         terminal: {
           light: 'rgb(188, 197, 104)',
