@@ -14,7 +14,8 @@ enum PageView {
   FAILURE,
 }
 
-const Popup: FC<Props> = ({ open, setOpen }) => {
+// default open state to be false, else fail pre rendering
+const Popup: FC<Props> = ({ open = false, setOpen }) => {
   const [password, setPassword] = useState('');
   const [view, setView] = useState<PageView>(PageView.FORM);
   const [timer, setTimer] = useState(3);
