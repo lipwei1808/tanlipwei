@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/control-has-associated-label */
-import { Source_Code_Pro as SourceCodePro } from 'next/font/google';
 import { useState, useRef, useEffect, useContext } from 'react';
 
 import {
@@ -24,16 +22,13 @@ import Console from './components/Console';
 import Spotify from './components/Spotify';
 import classes from './index.module.scss';
 import { InputContext } from './contexts/InputContext';
-
-const sourceCodePro = SourceCodePro({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700', '800'],
-  style: ['italic', 'normal'],
-});
+import Popup from './components/Popup';
+import Password from './components/Password';
 
 export default function Home() {
   const [html, setHtml] = useState<(() => JSX.Element)[]>([]);
   const [content, setContent] = useState<(() => JSX.Element)[]>([]);
+  const [open, setOpen] = useState(false);
   const [idx, setIdx] = useState(0);
   const consoleRef = useRef<HTMLDivElement>(null);
   const inputContainer = useRef<HTMLDivElement>(null);
@@ -114,7 +109,8 @@ export default function Home() {
           break;
         }
         case HelpCommands.ADMIN: {
-          setContent(arr.concat([...internships]));
+          // setContent(arr.concat([...hack]));
+          setOpen(true);
           break;
         }
         case HelpCommands.SKILIO: {
@@ -142,17 +138,7 @@ export default function Home() {
           <div className="bg-iterm-green-500 py-2 px-4 flex gap-x-2">
             <div className="bg-red-400 rounded-full h-4 w-4" />
             <div className="bg-yellow-400 rounded-full h-4 w-4" />
-            <div
-              onClick={() => {
-                alert('You hacked me!!');
-              }}
-              role="button"
-              tabIndex={-1}
-              onKeyDown={() => {
-                console.log('You hacked me!!');
-              }}
-              className="bg-green-400 rounded-full h-4 w-4"
-            />
+            <Password />
           </div>
           <div className="p-6 flex flex-col h-full overflow-hidden">
             <div className="grid grid-cols-12 grid-rows-3">
@@ -160,16 +146,14 @@ export default function Home() {
               <Spotify />
             </div>
             <hr className="border-iterm-green-600 my-4" />
-            <div
-              ref={testRef}
-              className={`${sourceCodePro.className} overflow-scroll flex-grow flex flex-col py-4`}
-            >
+            <div ref={testRef} className="overflow-scroll flex-grow flex flex-col py-4">
               <Console consoleRef={consoleRef} html={html} />
               <Input onEnter={onEnter} inputContainer={inputContainer} />
             </div>
           </div>
         </div>
       </div>
+      {open && <Popup open={open} setOpen={setOpen} />}
     </>
   );
 }

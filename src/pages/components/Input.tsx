@@ -14,6 +14,7 @@ interface Props {
 }
 
 const Input: FC<Props> = ({ onEnter, inputContainer }) => {
+  const [activeElement, setActiveElement] = useState<Element | null>();
   const [offset, setOffset] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
   const commandRef = useRef<HTMLSpanElement>(null);
@@ -26,8 +27,25 @@ const Input: FC<Props> = ({ onEnter, inputContainer }) => {
   };
 
   useEffect(() => {
-    focusInput();
+    if (typeof window !== 'undefined') {
+      setActiveElement(document.activeElement);
+    }
   }, []);
+
+  const handleFocusIn = () => {
+    setActiveElement(document.activeElement);
+  };
+
+  useEffect(() => {
+    document.addEventListener('focusin', handleFocusIn);
+    return () => {
+      document.removeEventListener('focusin', handleFocusIn);
+    };
+  }, []);
+
+  useEffect(() => {
+    focusInput();
+  });
 
   const onMove = (event: KeyboardEvent<HTMLInputElement>) => {
     switch (event.keyCode) {
@@ -68,16 +86,21 @@ const Input: FC<Props> = ({ onEnter, inputContainer }) => {
     <div
       ref={inputContainer}
       onClick={focusInput}
-      role="button"
-      tabIndex={0}
+      role="textbox"
+      tabIndex={-1}
       onKeyDown={focusInput}
     >
-      <div className="h-6">
+      <div className="h-6 cursor-text">
         <span className="text-terminal-base">tanlipwei@portfolio:~$&nbsp;</span>
         <span className="whitespace-pre" ref={commandRef}>
           {input}
         </span>
-        <b className={classes.cursor} style={{ left: offset }} />
+        <b
+          className={`${classes.cursor} ${
+            activeElement === inputRef.current ? classes.animateCursor : ''
+          }`}
+          style={{ left: offset }}
+        />
       </div>
       <input
         onKeyDown={onMove}

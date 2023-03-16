@@ -453,4 +453,4 @@ export const skilio = [
   () => <br />,
 ];
 
-export const hack = [];
+export const hack = [() => <div>Find the password somewhere in this terminal!</div>];
