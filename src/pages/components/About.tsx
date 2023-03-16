@@ -111,7 +111,7 @@ const About = () => {
           </a>
         </div>
       </div>
-      <div className="inline-block row-start-2 col-span-8">
+      <div className="inline-block row-start-2 col-span-8 overflow-hidden whitespace-nowrap relative">
         i&nbsp;
         <div className="inline-block">
           <Typewriter
@@ -124,6 +124,7 @@ const About = () => {
           />
         </div>
         <div className={classes.cursor} />
+        <div className="absolute top-0 right-0 opacity-80 h-full w-6 bg-gradient-to-r from-transparent to-iterm-green-400" />
       </div>
     </>
   );
