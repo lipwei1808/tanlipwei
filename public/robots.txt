@@ -1,0 +1,8 @@
+# Block all crawlers for /accounts
+User-agent: *
+
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+Sitemap: https://www.tanlipwei.com/sitemap.xml
