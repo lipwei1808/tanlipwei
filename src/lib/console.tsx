@@ -66,43 +66,85 @@ export const aboutMe = [
 ];
 
 export const banner = [
-  () => <div className="whitespace-pre">{'    .__________________________.'}</div>,
+  () => <div className="whitespace-pre leading-3">{'    .__________________________.'}</div>,
   () => <div className="whitespace-pre">{'    | .___________________. |==|'}</div>,
   () => <div className="whitespace-pre">{'    | | ................. | |  |'}</div>,
-  () => <div className="whitespace-pre">{'    | | ::::Apple ][::::: | |  |'}</div>,
+  () => <div className="whitespace-pre leading-3">{'    | | ::::Apple ][::::: | |  |'}</div>,
   () => <div className="whitespace-pre">{'    | | ::::::::::::::::: | |  |'}</div>,
-  () => <div className="whitespace-pre">{'    | | ::::::::::::::::: | |  |'}</div>,
+  () => <div className="whitespace-pre leading-3">{'    | | ::::::::::::::::: | |  |'}</div>,
   () => (
-    <div className="whitespace-pre">
-      {'    | | ::::::::::::::::: | |  |            __    ________     _       ____________'}
-    </div>
+    <>
+      <div className="whitespace-pre hidden lg:block">
+        {'    | | ::::::::::::::::: | |  |             __    ________     _       ____________'}
+      </div>
+      <div className="whitespace-pre block lg:hidden">{'    | | ::::::::::::::::: | |  |'}</div>
+    </>
   ),
   () => (
-    <div className="whitespace-pre">
-      {'    | | ::::::::::::::::: | |  |            / /   /  _/ __ \\   | |     / / ____/  _/'}
-    </div>
+    <>
+      <div className="whitespace-pre leading-3 hidden lg:block">
+        {'    | | ::::::::::::::::: | |  |            / /   /  _/ __ \\   | |     / / ____/  _/'}
+      </div>
+      <div className="whitespace-pre leading-3 block lg:hidden">
+        {'    | | ::::::::::::::::: | |  |'}
+      </div>
+    </>
   ),
   () => (
-    <div className="whitespace-pre">
-      {'    | | ::::::::::::::::: | | ,|           / /    / // /_/ /   | | /| / / __/  / /     '}
-    </div>
+    <>
+      <div className="whitespace-pre hidden lg:block">
+        {'    | | ::::::::::::::::: | | ,|           / /    / // /_/ /   | | /| / / __/  / /     '}
+      </div>
+      <div className="whitespace-pre block lg:hidden">{'    | | ::::::::::::::::: | | ,|'}</div>
+    </>
   ),
   () => (
-    <div className="whitespace-pre">
-      {'    | !___________________! |(c|          / /____/ // ____/    | |/ |/ / /____/ /   '}
-    </div>
+    <>
+      <div className="whitespace-pre leading-3 hidden lg:block">
+        {'    | !___________________! |(c|          / /____/ // ____/    | |/ |/ / /____/ /   '}
+      </div>
+      <div className="whitespace-pre block lg:hidden">{'    | !___________________! |(c|'}</div>
+    </>
   ),
   () => (
-    <div className="whitespace-pre">
-      {'    !_______________________!__!         /_____/___/_/         |__/|__/_____/___/     '}
-    </div>
+    <>
+      <div className="whitespace-pre hidden lg:block">
+        {'    !_______________________!__!         /_____/___/_/         |__/|__/_____/___/     '}
+      </div>
+      <div className="whitespace-pre block lg:hidden">{'    !_______________________!__!'}</div>
+    </>
   ),
-  () => <div className="whitespace-pre">{'   /                            \\'}</div>,
-  () => <div className="whitespace-pre">{'  /  [][][][][][][][][][][][][]  \\'}</div>,
+  () => <div className="whitespace-pre leading-3">{'   /                            \\'}</div>,
+  () => <div className="whitespace-pre leading-3">{'  /  [][][][][][][][][][][][][]  \\'}</div>,
   () => <div className="whitespace-pre">{' /  [][][][][][][][][][][][][][]  \\'}</div>,
-  () => <div className="whitespace-pre">{'(  [][][][][____________][][][][]  )'}</div>,
+  () => <div className="whitespace-pre leading-3">{'(  [][][][][____________][][][][]  )'}</div>,
   () => <div className="whitespace-pre">{' \\ ------------------------------ /'}</div>,
-  () => <div className="whitespace-pre">{'  \\______________________________/'}</div>,
+  () => <div className="whitespace-pre leading-3">{'  \\______________________________/'}</div>,
+  () => (
+    <div className="whitespace-pre block lg:hidden">
+      {'    __    ________     _       ____________'}
+    </div>
+  ),
+  () => (
+    <div className="whitespace-pre leading-3 block lg:hidden">
+      {'   / /   /  _/ __ \\   | |     / / ____/  _/'}
+    </div>
+  ),
+  () => (
+    <div className="whitespace-pre block lg:hidden">
+      {'  / /    / // /_/ /   | | /| / / __/  / /     '}
+    </div>
+  ),
+  () => (
+    <div className="whitespace-pre leading-3 block lg:hidden">
+      {' / /____/ // ____/    | |/ |/ / /____/ /   '}
+    </div>
+  ),
+  () => (
+    <div className="whitespace-pre block lg:hidden">
+      {'/_____/___/_/         |__/|__/_____/___/     '}
+    </div>
+  ),
   () => <br />,
   () => <div>Welcome to my interactive portfolio website</div>,
   () => <div>For a list of commands, type &quot;help&quot;</div>,

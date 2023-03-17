@@ -24,12 +24,14 @@ import classes from './index.module.scss';
 import { InputContext } from './contexts/InputContext';
 import Popup from './components/Popup';
 import Password from './components/Password';
+import Ascii from './components/Ascii';
 
 export default function Home() {
   const [html, setHtml] = useState<(() => JSX.Element)[]>([]);
   const [content, setContent] = useState<(() => JSX.Element)[]>([]);
   const [open, setOpen] = useState(false);
   const [idx, setIdx] = useState(0);
+  const [command, setCommand] = useState('');
   const consoleRef = useRef<HTMLDivElement>(null);
   const inputContainer = useRef<HTMLDivElement>(null);
   const testRef = useRef<HTMLDivElement>(null);
@@ -127,8 +129,11 @@ export default function Home() {
         }
         default: {
           setContent(arr.concat([...unknown]));
+          setCommand('Invalid');
+          return;
         }
       }
+      setCommand(input);
     }
   };
 
@@ -147,6 +152,7 @@ export default function Home() {
           <div className="p-6 flex flex-col h-full overflow-hidden">
             <div className="grid grid-cols-12 grid-rows-3">
               <About />
+              <Ascii command={command} />
               <Spotify />
             </div>
             <hr className="border-iterm-green-600 my-4" />
