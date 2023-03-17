@@ -18,7 +18,7 @@ const About = () => {
       </div>
       <div className="row-start-3 col-span-8">
         <div className="flex gap-x-4">
-          <a href="/resume.pdf" target="blank">
+          <a href="/files/resume.pdf" target="blank">
             <svg
               height="2rem"
               width="2rem"

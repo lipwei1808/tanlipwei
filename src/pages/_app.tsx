@@ -22,14 +22,17 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="locale" content="en-SG" />
         <meta name="theme-color" content="#000" />
+        <meta name="author" content="Tan Lip Wei" />
         <meta
           name="description"
           content="NUS Computer Science Undergraduate and Full-Stack Web Developer from Singapore"
         />
-        <link rel="shortcut icon" sizes="48x48" href="/favicon/favicon.ico`" />
-        <link rel="icon" sizes="192x192" href="/favicon/favicon192.png`" />
+        {/* Favicons */}
+        <link rel="shortcut icon" sizes="32x32" href="/favicon/favicon32.ico" />
+        <link rel="icon" type="image/png" href="/favicon/favicon192.png" sizes="192x192" />
+        <link rel="icon" type="image/png" href="/favicon/favicon512.png" sizes="512x512" />
         <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png`" />
-        <link rel="canonical" href="https://www.tanlipwei.com" />
+        {/* Opengraph tags */}
         <meta property="og:title" content="Tan Lip Wei" />
         <meta property="og:site_name" content="Tan Lip Wei" />
         <meta property="og:locale" content="en-SG" />
@@ -47,6 +50,7 @@ export default function App({ Component, pageProps }: AppProps) {
           name="twitter:description"
           content="NUS Computer Science Undergraduate and Full-Stack Web Developer from Singapore"
         />
+        <link rel="canonical" href="https://www.tanlipwei.com" />
       </Head>
       <ActiveElementProvider>
         <InputProvider>
