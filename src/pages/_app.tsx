@@ -42,7 +42,7 @@ export default function App({ Component, pageProps }: AppProps) {
           content="NUS Computer Science Undergraduate and Full-Stack Web Developer from Singapore"
         />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="/og_image.jpg`" />
+        <meta property="og:image" content="/images/og_image.png`" />
         <meta name="twitter:title" content="Tan Lip Wei" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:url" content="https://www.tanlipwei.com" />
