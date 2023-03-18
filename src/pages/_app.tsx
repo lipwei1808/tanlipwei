@@ -17,6 +17,7 @@ const sourceCodePro = SourceCodePro({
 });
 
 export default function App({ Component, pageProps }: AppProps) {
+  console.log(process.env.NODE_ENV);
   return (
     <>
       <Head>
