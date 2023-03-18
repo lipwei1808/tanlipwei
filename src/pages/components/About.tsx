@@ -7,6 +7,9 @@ const About = () => {
     'am an aspiring software engineer',
     'am a computer science student',
     'am studying business',
+    'am a self-taught programmer',
+    'am taking 5 modules this semester',
+    'love ES2002',
   ];
   return (
     <>
