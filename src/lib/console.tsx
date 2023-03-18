@@ -191,6 +191,7 @@ export const socials = [
       rel="noreferrer"
       href="https://www.github.com/lipwei1808"
       className="flex gap-x-4 items-center my-2"
+      aria-label="Github"
     >
       <svg
         className="hover:fill-white cursor-pointer transition"
@@ -210,6 +211,7 @@ export const socials = [
       rel="noreferrer"
       href="https://linkedin.com/in/tanlipwei"
       className="flex gap-x-4 items-center my-2"
+      aria-label="Linkedin"
     >
       <svg
         className="hover:fill-white cursor-pointer transition"
@@ -229,6 +231,7 @@ export const socials = [
       rel="noreferrer"
       href="mailto:tlipwei@gmail.com"
       className="flex gap-x-4 items-center my-2"
+      aria-label="Email"
     >
       <svg
         className="hover:fill-white cursor-pointer transition"
@@ -254,6 +257,7 @@ export const socials = [
       target="_blank"
       rel="noreferrer"
       href="https://www.instagram.com/lipwei.tan"
+      aria-label="Instagram"
     >
       <svg
         className="hover:fill-white cursor-pointer transition"

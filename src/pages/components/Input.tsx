@@ -99,6 +99,7 @@ const Input: FC<Props> = ({ onEnter, inputContainer }) => {
         className="h-0 w-0 absolute"
         value={input}
         onChange={(e) => setInput(e.target.value)}
+        aria-label="Terminal input"
       />
     </div>
   );
