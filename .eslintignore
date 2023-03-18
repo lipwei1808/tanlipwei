@@ -1,4 +1,6 @@
 **/node_modules/*
 **/.next/*
 
-public/
+**/public/workbox-*.js
+**/public/sw.js
+**/public/fallback-*.js
