@@ -1,9 +1,6 @@
-import { FC, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import classes from './Spotify.module.scss';
-
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
-interface Props {}
 
 interface Song {
   name: string;
@@ -12,8 +9,7 @@ interface Song {
   uri: string;
 }
 
-// eslint-disable-next-line arrow-body-style
-const Spotify: FC<Props> = () => {
+const Spotify = () => {
   const [song, setSong] = useState<Song>();
 
   const fetchSong = () => {

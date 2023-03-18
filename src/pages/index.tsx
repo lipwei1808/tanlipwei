@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect, useContext } from 'react';
+import dynamic from 'next/dynamic';
 
 import {
   banner,
@@ -20,11 +21,12 @@ import About from './components/About';
 import Input from './components/Input';
 import Console from './components/Console';
 import Spotify from './components/Spotify';
-import classes from './index.module.scss';
-import { InputContext } from './contexts/InputContext';
-import Popup from './components/Popup';
-import Password from './components/Password';
 import Ascii from './components/Ascii';
+import { InputContext } from './contexts/InputContext';
+import classes from './index.module.scss';
+
+const Password = dynamic(() => import('./components/Password'));
+const Popup = dynamic(() => import('./components/Popup'));
 
 export default function Home() {
   const [html, setHtml] = useState<(() => JSX.Element)[]>([]);
