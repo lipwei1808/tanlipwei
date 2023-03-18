@@ -288,7 +288,7 @@ export const technologies = [
   () => <br />,
   () => <div className="text-lg mb-4">Languages</div>,
   () => (
-    <div className="flex flex-wrap gap-x-4 mb-8">
+    <div className="flex flex-wrap gap-4 mb-8">
       {languages.map((language) => (
         <Fragment key={language}>
           <Image
@@ -308,7 +308,7 @@ export const technologies = [
   ),
   () => <div className="text-lg mb-4">Web Development Frameworks and Libraries</div>,
   () => (
-    <div className="flex flex-wrap gap-x-4 mb-8">
+    <div className="flex flex-wrap gap-4 mb-8">
       {frameworks.map((language) => (
         <Fragment key={language}>
           <Image
@@ -328,7 +328,7 @@ export const technologies = [
   ),
   () => <div className="text-lg mb-4">Others</div>,
   () => (
-    <div className="flex flex-wrap gap-x-4">
+    <div className="flex flex-wrap gap-4">
       {others.map((language) => (
         <Fragment key={language}>
           <Image
@@ -430,7 +430,7 @@ export const works = [
     </ul>
   ),
   () => (
-    <div className="flex flex-wrap gap-x-4">
+    <div className="flex flex-wrap gap-4">
       {worksTechnology.map((language) => (
         <Fragment key={language}>
           <Image
@@ -474,7 +474,7 @@ export const skilio = [
     </ul>
   ),
   () => (
-    <div className="flex flex-wrap gap-x-4">
+    <div className="flex flex-wrap gap-4">
       {skilioTechnology.map((language) => (
         <Fragment key={language}>
           <Image
