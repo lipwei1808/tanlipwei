@@ -45,7 +45,7 @@ const Spotify: FC<Props> = () => {
   }, []);
 
   return (
-    <div className="flex flex-col gap-y-10 pt-2 items-center col-start-10 col-span-3 row-span-4 row-start-1 sm:justify-center">
+    <div className="flex flex-col gap-y-10 pt-2 items-center col-start-10 col-span-3 row-span-3 row-start-1 sm:justify-center">
       <div className="rounded-full p-4`">
         <div className={`${song ? 'bg-green-500' : 'bg-red-600'}  rounded-full relative`}>
           <svg
