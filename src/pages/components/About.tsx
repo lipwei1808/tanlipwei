@@ -13,13 +13,13 @@ const About = () => {
   ];
   return (
     <>
-      <div className="flex justify-between items-center text-xl font-bold mb-2 col-start-4 col-span-5 row-start-1 md:text-3xl">
+      <div className="flex justify-between items-center text-xl font-bold mb-2 row-start-1 col-span-9 md:text-3xl lg:col-start-4 lg:col-span-5">
         <div>
           hi, im Lip Wei&nbsp;
           <span className={classes.wave}>👋</span>
         </div>
       </div>
-      <div className="row-start-3 col-start-4 col-span-5">
+      <div className="row-start-3 col-span-9 lg:col-span-5 lg:col-start-4">
         <div className="flex gap-x-4">
           <a href="/files/resume.pdf" target="blank">
             <svg
@@ -114,7 +114,7 @@ const About = () => {
           </a>
         </div>
       </div>
-      <div className="inline-block row-start-2 col-start-4 col-span-5 overflow-hidden whitespace-nowrap relative">
+      <div className="inline-block row-start-2 overflow-hidden whitespace-nowrap relative col-span-9 lg:col-start-4 lg:col-span-5">
         i&nbsp;
         <div className="inline-block">
           <Typewriter

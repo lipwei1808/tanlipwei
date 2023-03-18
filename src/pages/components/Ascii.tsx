@@ -9,7 +9,7 @@ interface Props {
 // eslint-disable-next-line arrow-body-style
 const Ascii: FC<Props> = ({ command }) => {
   return (
-    <div className="whitespace-pre col-start-1 col-span-3 row-span-3 justify-self-center">
+    <div className="hidden whitespace-pre col-start-1 col-span-3 row-span-3 justify-self-center lg:block">
       <p className="leading-[1px]">{'    ---------------'}</p>
       <p className="leading-2">{'   / ============= \\'}</p>
       {/* <p className="leading-3">{'   / __________\\'}</p> */}
