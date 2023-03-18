@@ -71,11 +71,14 @@ const Input: FC<Props> = ({ onEnter, inputContainer }) => {
       ref={inputContainer}
       onClick={focusInput}
       role="textbox"
+      aria-label="Terminal Input UI"
       tabIndex={-1}
       onKeyDown={focusInput}
     >
       <div className="h-6 cursor-text">
-        <span className="text-terminal-base">tanlipwei@portfolio:~$&nbsp;</span>
+        <span className="text-terminal-base lg:text-terminal-dark">
+          tanlipwei@portfolio:~$&nbsp;
+        </span>
         <span className="whitespace-pre" ref={commandRef}>
           {input}
         </span>
@@ -99,7 +102,7 @@ const Input: FC<Props> = ({ onEnter, inputContainer }) => {
         className="h-0 w-0 absolute"
         value={input}
         onChange={(e) => setInput(e.target.value)}
-        aria-label="Terminal input"
+        aria-label="Terminal Input"
       />
     </div>
   );

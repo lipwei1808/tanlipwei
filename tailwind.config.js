@@ -8,9 +8,9 @@ module.exports = {
       },
       colors: {
         terminal: {
-          light: 'rgb(188, 197, 104)',
-          base: 'rgb(133, 149, 46)',
-          dark: 'rgb(90, 103, 23)',
+          light: 'rgb(223, 239, 136)',
+          base: 'rgb(183, 199, 96)',
+          dark: 'rgb(143, 159, 56)',
         },
         'iterm-green': {
           100: '#c8d6e5',
