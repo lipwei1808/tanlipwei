@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect, useContext } from 'react';
+import dynamic from 'next/dynamic';
 
 import {
   banner,
@@ -20,11 +21,12 @@ import About from './components/About';
 import Input from './components/Input';
 import Console from './components/Console';
 import Spotify from './components/Spotify';
-import classes from './index.module.scss';
-import { InputContext } from './contexts/InputContext';
-import Popup from './components/Popup';
-import Password from './components/Password';
 import Ascii from './components/Ascii';
+import { InputContext } from './contexts/InputContext';
+import classes from './index.module.scss';
+
+const Password = dynamic(() => import('./components/Password'));
+const Popup = dynamic(() => import('./components/Popup'));
 
 export default function Home() {
   const [html, setHtml] = useState<(() => JSX.Element)[]>([]);
@@ -143,7 +145,7 @@ export default function Home() {
       <div className={`${classes.mediumStars} ${classes.star}`} />
       <div className={`${classes.largeStars} ${classes.star}`} />
       <div className="flex justify-center items-center h-screen lg:py-12">
-        <div className="max-w-screen-lg w-full h-screen bg-iterm-green-400 overflow-hidden z-10 flex flex-col lg:rounded-xl max-h-full lg:h-auto lg:bg-opacity-80">
+        <div className="max-w-screen-lg w-full h-screen bg-iterm-green-400 overflow-hidden z-10 flex flex-col lg:rounded-xl max-h-full lg:h-full lg:bg-opacity-80">
           <div className="bg-iterm-green-500 py-2 px-4 flex gap-x-2">
             <div className="bg-red-400 rounded-full h-4 w-4" />
             <div className="bg-yellow-400 rounded-full h-4 w-4" />

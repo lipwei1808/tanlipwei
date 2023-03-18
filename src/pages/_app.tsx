@@ -53,12 +53,13 @@ export default function App({ Component, pageProps }: AppProps) {
           content="NUS Computer Science Undergraduate and Full-Stack Web Developer from Singapore"
         />
         <link rel="canonical" href="https://www.tanlipwei.com" />
+        <link rel="manifest" href="/manifest.json" />
       </Head>
       <Script
         src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}`}
-        strategy="lazyOnload"
+        strategy="afterInteractive"
       />
-      <Script id="google-analytics" strategy="lazyOnload">
+      <Script id="google-analytics" strategy="afterInteractive">
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}

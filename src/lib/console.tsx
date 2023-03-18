@@ -191,6 +191,7 @@ export const socials = [
       rel="noreferrer"
       href="https://www.github.com/lipwei1808"
       className="flex gap-x-4 items-center my-2"
+      aria-label="Github"
     >
       <svg
         className="hover:fill-white cursor-pointer transition"
@@ -210,6 +211,7 @@ export const socials = [
       rel="noreferrer"
       href="https://linkedin.com/in/tanlipwei"
       className="flex gap-x-4 items-center my-2"
+      aria-label="Linkedin"
     >
       <svg
         className="hover:fill-white cursor-pointer transition"
@@ -229,6 +231,7 @@ export const socials = [
       rel="noreferrer"
       href="mailto:tlipwei@gmail.com"
       className="flex gap-x-4 items-center my-2"
+      aria-label="Email"
     >
       <svg
         className="hover:fill-white cursor-pointer transition"
@@ -254,6 +257,7 @@ export const socials = [
       target="_blank"
       rel="noreferrer"
       href="https://www.instagram.com/lipwei.tan"
+      aria-label="Instagram"
     >
       <svg
         className="hover:fill-white cursor-pointer transition"
@@ -288,7 +292,7 @@ export const technologies = [
   () => <br />,
   () => <div className="text-lg mb-4">Languages</div>,
   () => (
-    <div className="flex flex-wrap gap-x-4 mb-8">
+    <div className="flex flex-wrap gap-4 mb-8">
       {languages.map((language) => (
         <Fragment key={language}>
           <Image
@@ -308,7 +312,7 @@ export const technologies = [
   ),
   () => <div className="text-lg mb-4">Web Development Frameworks and Libraries</div>,
   () => (
-    <div className="flex flex-wrap gap-x-4 mb-8">
+    <div className="flex flex-wrap gap-4 mb-8">
       {frameworks.map((language) => (
         <Fragment key={language}>
           <Image
@@ -328,7 +332,7 @@ export const technologies = [
   ),
   () => <div className="text-lg mb-4">Others</div>,
   () => (
-    <div className="flex flex-wrap gap-x-4">
+    <div className="flex flex-wrap gap-4">
       {others.map((language) => (
         <Fragment key={language}>
           <Image
@@ -430,7 +434,7 @@ export const works = [
     </ul>
   ),
   () => (
-    <div className="flex flex-wrap gap-x-4">
+    <div className="flex flex-wrap gap-4">
       {worksTechnology.map((language) => (
         <Fragment key={language}>
           <Image
@@ -474,7 +478,7 @@ export const skilio = [
     </ul>
   ),
   () => (
-    <div className="flex flex-wrap gap-x-4">
+    <div className="flex flex-wrap gap-4">
       {skilioTechnology.map((language) => (
         <Fragment key={language}>
           <Image

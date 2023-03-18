@@ -1,0 +1,29 @@
+{
+  "name": "Tan Lip Wei",
+  "short_name": "tlw",
+  "id": "/",
+  "lang": "en-SG",
+  "description": "NUS Computer Science Undergraduate and Full-Stack Web Developer from Singapore",
+  "display": "minimal-ui",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "/favicon/favicon192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/favicon/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon/favicon512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#222",
+  "background_color": "#222"
+}
