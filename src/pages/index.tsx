@@ -158,7 +158,10 @@ export default function Home() {
               <Spotify />
             </div>
             <hr className="border-iterm-green-600 my-4" />
-            <div ref={testRef} className="overflow-scroll flex-grow flex flex-col py-4">
+            <div
+              ref={testRef}
+              className={`${classes.hideScrollbar} overflow-scroll flex-grow flex flex-col py-4`}
+            >
               <Console consoleRef={consoleRef} html={html} />
               <Input onEnter={onEnter} inputContainer={inputContainer} />
             </div>

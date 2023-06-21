@@ -1,3 +1,7 @@
+.hideScrollbar::-webkit-scrollbar {
+  display: none;
+}
+
 .star {
   background: transparent;
   display: none;
